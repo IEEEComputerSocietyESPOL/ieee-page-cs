@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f3ee;
-  --foreground: #111111;
+  --background: #f7f8fb;
+  --foreground: #0b1f33;
   --surface: #ffffff;
-  --ink-subtle: #4a4a4a;
-  --brand: #0047ab;
-  --brand-dark: #00327a;
-  --accent: #ff6b3d;
+  --ink-subtle: #3c4a5f;
+  --brand: #0b5ea8;
+  --brand-dark: #08437a;
+  --accent: #f59d3d;
 }
 
 @theme inline {
@@ -25,4 +25,36 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-body), "Segoe UI", system-ui, sans-serif;
+}
+
+@keyframes banner-pan {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% {
+    background-position: 100% 50%;
+    transform: scale(1.02);
+  }
+  100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+}
+
+.animated-banner {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(120deg, rgba(9, 30, 56, 0.95), rgba(11, 94, 168, 0.8), rgba(9, 30, 56, 0.95));
+  background-size: 200% 200%;
+  animation: banner-pan 14s ease-in-out infinite;
+}
+
+.animated-banner::after {
+  content: "";
+  position: absolute;
+  inset: -20% 0 0;
+  background: radial-gradient(circle at 15% 20%, rgba(143, 208, 255, 0.45), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(77, 196, 255, 0.35), transparent 50%);
+  opacity: 0.9;
 }

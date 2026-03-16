@@ -1,410 +1,390 @@
-const stats = [
-  { label: "Capitulos tecnicos", value: "7" },
-  { label: "Convenios vigentes", value: "0" },
-  { label: "Miembros activos", value: "0" },
-  { label: "Grupos de afinidad", value: "2" },
-];
+import HeroCanvas from "@/components/HeroCanvas";
 
-const chapters = [
-  { code: "COMSOC", name: "Communications Society" },
-  { code: "CSS", name: "Control Systems Society" },
-  { code: "IAS", name: "Industry Applications Society" },
-  { code: "OES", name: "Oceanic Engineering Society" },
-  { code: "RAS", name: "Robotics & Automation Society" },
-  { code: "PES", name: "Power & Energy Society" },
-  { code: "CS", name: "Computer Society" },
-];
-
-const affinityGroups = [
+const happeningCards = [
   {
-    code: "WIE",
-    name: "Women in Engineering",
-    description:
-      "Impulsa la participacion y liderazgo de mujeres en STEM con actividades de formacion y comunidad.",
+    label: "NEW IEEE MEMBERS",
+    title: "Save 50% on Dues",
+    tone: "blue",
+    size: "large",
   },
   {
-    code: "SIGHT",
-    name: "Special Interest Group on Humanitarian Technology",
-    description:
-      "Conecta la ingenieria con impacto social y proyectos de tecnologia humanitaria.",
-  },
-];
-
-const membershipInfo = [
-  {
-    title: "Que es un miembro IEEE?",
-    body:
-      "Los miembros IEEE son, en su mayoria, Ingenieros Electricos y Electronicos, pero el alcance de intereses ha atraido tambien a gente de diferentes areas.",
+    label: "IEEE FOUNDATION",
+    title: "Fueling the Future",
+    tone: "blue",
   },
   {
-    title: "Que requiere la membresia?",
-    body:
-      "Para poder calificar a una membresia la persona interesada debe completar ciertos criterios academicos o profesionales y acatar el codigo de etica y los reglamentos de la organizacion.",
+    label: "IEEE CORPORATE AWARDS",
+    title: "2026 IEEE Medal of Honor Recipient Announced",
+    tone: "navy",
   },
   {
-    title: "A que puestos se puede aplicar?",
-    body:
-      "Cada persona puede unirse a IEEE como miembro estudiantil, miembro profesional, o miembro asociativo.",
+    label: "CONFERENCES",
+    title: "ICASSP 2026",
+    tone: "blue",
+  },
+  {
+    label: "EDUCATIONAL ACTIVITIES",
+    title: "Register for TryEngineering Summer Institute 2026",
+    tone: "blue",
   },
 ];
 
-const events = [
+const innovationCards = [
   {
-    title: "Congresos",
-    detail: "Encuentros academicos y tecnologicos para ampliar redes y conocimiento.",
+    label: "BIOMEDICAL",
+    title: "Lab-On-a-Chip Grippers Could Handle Human Cells",
+    date: "14 Mar 2026",
   },
   {
-    title: "Cursos y Talleres",
-    detail: "Capacitaciones practicas para habilidades tecnicas y liderazgo.",
+    label: "ROBOTICS",
+    title: "Video Friday: These Robots Were Born to Run",
+    date: "13 Mar 2026",
   },
   {
-    title: "Concursos",
-    detail: "Retos estudiantiles que promueven innovacion y trabajo en equipo.",
-  },
-  {
-    title: "Actividades de Rama",
-    detail: "Eventos internos para fortalecer la comunidad IEEE-ESPOL.",
+    label: "TRANSPORTATION",
+    title: "Raquel Urtasun on Level-4 Autonomous Trucks",
+    date: "13 Mar 2026",
   },
 ];
 
-const socialLinks = [
-  { label: "Facebook", href: "https://www.facebook.com/ieee.espol" },
-  { label: "Instagram", href: "https://www.instagram.com/ieee.espol/" },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/ieee-espol/" },
-  { label: "YouTube", href: "https://www.youtube.com/channel/UChp6nfXpJatqYujtJuUqbJQ" },
+const keepExploringLinks = [
+  "Membership Benefits",
+  "Upcoming Conferences",
+  "Advance Your Career",
+  "Communities & Connection",
 ];
+
+const footerColumns = [
+  {
+    title: "ABOUT IEEE",
+    links: [
+      "IEEE at a Glance",
+      "History",
+      "Strategic Plan",
+      "Organizational Structure",
+      "Organizational Ethics",
+      "Financials & Statistics",
+    ],
+  },
+  {
+    title: "QUICK LINKS",
+    links: ["Newsroom", "Locations", "Contact Us", "Work at IEEE", "Get the IEEE App"],
+  },
+  {
+    title: "FOLLOW US",
+    links: ["X", "Facebook", "LinkedIn", "Instagram", "YouTube"],
+  },
+];
+
+const tones: Record<string, { band: string; img: string }> = {
+  blue: {
+    band: "bg-[#0b5ea8]",
+    img: "bg-[radial-gradient(circle_at_top,_#dfeeff,_#8dbef4_55%,_#2f6fb2_100%)]",
+  },
+  navy: {
+    band: "bg-[#0a3f6d]",
+    img: "bg-[linear-gradient(135deg,_#0a1930,_#102a4e)]",
+  },
+};
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top,_#ffffff,_#f6f3ee_55%,_#e8e2d7_100%)] text-neutral-900">
-      <div className="pointer-events-none absolute -left-20 top-24 h-72 w-72 rounded-full bg-blue-200/40 blur-3xl" />
-      <div className="pointer-events-none absolute right-10 top-10 h-56 w-56 rounded-full bg-orange-200/40 blur-3xl" />
+    <div className="relative min-h-screen bg-white text-[#0b1f33]">
+      <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-[#7dc5ea]/70 lg:block" />
 
-      <header className="relative z-10 mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-6 lg:px-10">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-700 text-white">
-            <span className="text-sm font-semibold">IEEE</span>
+      <div className="border-b border-[#e6ecf5] bg-white/90">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-2 text-[11px] uppercase tracking-[0.28em] text-[#6b7a90] lg:px-10">
+          <div className="flex flex-wrap gap-4">
+            <span>IEEE.org</span>
+            <span>IEEE Xplore</span>
+            <span>IEEE Standards</span>
+            <span>IEEE Spectrum</span>
+            <span>IEEE Sites</span>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">
-              Rama Estudiantil
-            </p>
-            <p className="text-lg font-semibold text-neutral-900">IEEE ESPOL</p>
+          <div className="hidden items-center gap-4 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#0b5ea8] md:flex">
+            <span>Join IEEE</span>
+            <span>Donate</span>
+            <span>Cart (0)</span>
+            <span>Create Account</span>
+            <span>Sign In</span>
           </div>
         </div>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-neutral-700 lg:flex">
-          <a href="#inicio" className="transition hover:text-neutral-900">
-            Inicio
-          </a>
-          <a href="#acerca" className="transition hover:text-neutral-900">
-            Acerca de
-          </a>
-          <a href="#capitulos" className="transition hover:text-neutral-900">
-            Capitulos Tecnicos
-          </a>
-          <a href="#afinidad" className="transition hover:text-neutral-900">
-            Grupos de Afinidad
-          </a>
-          <a href="#eventos" className="transition hover:text-neutral-900">
-            Eventos
-          </a>
-          <a href="#contacto" className="transition hover:text-neutral-900">
-            Contacto
-          </a>
-        </nav>
-        <a
-          href="https://site.ieee.org/sb-espol/about-ieee/meeting-minutes/"
-          className="hidden rounded-full bg-blue-700 px-5 py-2 text-sm font-semibold text-white transition hover:bg-blue-800 lg:inline-flex"
-        >
-          Hazte miembro
-        </a>
-        <button
-          type="button"
-          className="inline-flex items-center rounded-full border border-neutral-300 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-700 lg:hidden"
-        >
-          Menu
-        </button>
+      </div>
+
+      <header className="sticky top-0 z-20 border-b border-[#e6ecf5] bg-white/95 backdrop-blur">
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#0b5ea8] text-[#0b5ea8]">
+              <span className="text-xs font-semibold">IEEE</span>
+            </div>
+            <div>
+              <p className="text-sm font-semibold tracking-[0.12em] text-[#0b5ea8]">IEEE</p>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-[#6b7a90]">
+                Advancing Technology for Humanity
+              </p>
+            </div>
+          </div>
+          <nav className="hidden items-center gap-6 text-sm font-semibold text-[#3c4a5f] lg:flex">
+            <a href="#happening" className="transition hover:text-[#0b5ea8]">
+              News
+            </a>
+            <a href="#innovations" className="transition hover:text-[#0b5ea8]">
+              Innovations
+            </a>
+            <a href="#impact" className="transition hover:text-[#0b5ea8]">
+              Impact
+            </a>
+            <a href="#transmitters" className="transition hover:text-[#0b5ea8]">
+              Community
+            </a>
+            <a href="#explore" className="transition hover:text-[#0b5ea8]">
+              Explore
+            </a>
+          </nav>
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              className="hidden rounded-full border border-[#0b5ea8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#0b5ea8] md:inline-flex"
+            >
+              Search
+            </button>
+            <button
+              type="button"
+              className="inline-flex items-center rounded-full border border-[#d8e2f0] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#3c4a5f] lg:hidden"
+            >
+              Menu
+            </button>
+          </div>
+        </div>
       </header>
 
       <main className="relative z-10">
-        <section id="inicio" className="mx-auto flex w-full max-w-6xl flex-col gap-12 px-6 pb-16 pt-8 lg:flex-row lg:items-center lg:px-10 lg:pt-16">
-          <div className="flex flex-1 flex-col gap-6">
-            <div className="flex w-fit items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-blue-700">
-              Rama Estudiantil IEEE - ESPOL
-            </div>
-            <h1 className="font-[var(--font-heading)] text-4xl leading-tight text-neutral-900 sm:text-5xl lg:text-6xl">
-              Una comunidad que conecta ingenieria, liderazgo y servicio.
-            </h1>
-            <p className="max-w-xl text-base leading-relaxed text-neutral-700 sm:text-lg">
-              La Rama Estudiantil IEEE-ESPOL es una organizacion sin animo de lucro, formada por un grupo de jovenes estudiantes de varias facultades, la mayoria perteneciente a la Facultad de Ingenieria Electrica (FIEC).
-            </p>
-            <div className="flex flex-wrap items-center gap-4">
-              <a
-                href="#acerca"
-                className="rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800"
-              >
-                Conocer la rama
-              </a>
-              <a
-                href="https://site.ieee.org/sb-espol/about-ieee/meeting-minutes/"
-                className="rounded-full border border-neutral-300 px-6 py-3 text-sm font-semibold text-neutral-800 transition hover:border-neutral-600"
-              >
-                Hazte miembro
-              </a>
-            </div>
-          </div>
-          <div className="flex flex-1 flex-col gap-6">
-            <div className="rounded-3xl border border-neutral-200 bg-white/80 p-6 shadow-[0_20px_60px_rgba(16,24,40,0.08)]">
-              <div className="flex items-center justify-between">
-                <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
-                  Ecosistema IEEE-ESPOL
-                </p>
-                <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700">
-                  2026
-                </span>
-              </div>
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {stats.map((item) => (
-                  <div
-                    key={item.label}
-                    className="rounded-2xl border border-neutral-100 bg-neutral-50 p-4"
-                  >
-                    <p className="text-2xl font-semibold text-neutral-900">{item.value}</p>
-                    <p className="mt-1 text-xs uppercase tracking-[0.25em] text-neutral-500">
-                      {item.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-6 rounded-2xl bg-blue-700 px-4 py-5 text-white">
-                <p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-100">
-                  Mision
-                </p>
-                <p className="mt-3 text-sm leading-relaxed">
-                  Impulsar el desarrollo profesional y humano mediante capitulos tecnicos, grupos de afinidad y proyectos con impacto real.
-                </p>
+        <section className="mx-auto w-full max-w-6xl px-6 pb-16 pt-10 lg:px-10">
+          <div className="relative overflow-hidden rounded-3xl border border-[#d6e4f2] bg-[#061a2f]">
+            <div className="absolute inset-0 animated-banner opacity-80" />
+            <HeroCanvas />
+            <div className="relative z-10 flex flex-col gap-6 px-8 py-12 text-white sm:px-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#9dd8ff]">
+                IEEE | Advancing Technology for Humanity
+              </p>
+              <h1 className="font-[var(--font-heading)] text-3xl leading-tight sm:text-4xl lg:text-5xl">
+                Explore the world&apos;s largest technical community.
+              </h1>
+              <p className="max-w-2xl text-sm text-[#d5e9ff] sm:text-base">
+                Research, standards, conferences, and global connections that power innovation across disciplines.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <button className="rounded-full bg-white px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                  Join IEEE
+                </button>
+                <button className="rounded-full border border-white/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white">
+                  Learn More
+                </button>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="acerca" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
-          <div className="grid gap-10 rounded-3xl border border-neutral-200 bg-white/80 p-8 shadow-[0_20px_50px_rgba(16,24,40,0.06)] lg:grid-cols-[1.2fr_1fr]">
+        <section id="happening" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-12 lg:px-10">
+          <div className="text-center">
+            <h1 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] sm:text-4xl">
+              Happening Across IEEE
+            </h1>
+            <p className="mt-4 text-sm text-[#3c4a5f]">
+              From the latest conferences and community events to the courses and opportunities that can help you grow.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 lg:grid-cols-[1.2fr_1fr]">
+            <div className="overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white shadow-[0_18px_40px_rgba(9,20,40,0.12)]">
+              <div className={`h-64 ${tones[happeningCards[0].tone].img}`} />
+              <div className={`${tones[happeningCards[0].tone].band} px-6 py-5 text-white`}>
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#d5e9ff]">
+                  {happeningCards[0].label}
+                </p>
+                <p className="mt-3 text-xl font-semibold">{happeningCards[0].title}</p>
+              </div>
+            </div>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {happeningCards.slice(1).map((card) => (
+                <div
+                  key={card.title}
+                  className="overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white shadow-[0_12px_30px_rgba(9,20,40,0.08)]"
+                >
+                  <div className={`h-36 ${tones[card.tone].img}`} />
+                  <div className={`${tones[card.tone].band} px-5 py-4 text-white`}>
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#d5e9ff]">
+                      {card.label}
+                    </p>
+                    <p className="mt-2 text-sm font-semibold">{card.title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="innovations" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33]">Latest Innovations</h2>
+            <button
+              type="button"
+              className="inline-flex items-center gap-2 rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]"
+            >
+              Explore More
+              <span className="text-base">↗</span>
+            </button>
+          </div>
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            {innovationCards.map((card) => (
+              <div key={card.title} className="overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white">
+                <div className="h-44 bg-[linear-gradient(135deg,_#0f1f35,_#2f6fb2)]" />
+                <div className="bg-[#f4e3c4] px-6 py-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#785a2a]">
+                    {card.label}
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-[#1b2a3c]">{card.title}</p>
+                  <p className="mt-2 text-xs text-[#6b7a90]">{card.date}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="impact" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Acerca de</p>
-              <h2 className="mt-4 font-[var(--font-heading)] text-3xl text-neutral-900 sm:text-4xl">
-                IEEE ESPOL: talento joven con proposito global.
+              <p className="text-xs uppercase tracking-[0.36em] text-[#6b7a90]">Driving Technical Innovation</p>
+              <h2 className="mt-3 font-[var(--font-heading)] text-3xl text-[#0b1f33]">
+                IEEE Xplore Reaches 7 Million Documents
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-neutral-700">
-                La rama nace para conectar estudiantes con oportunidades de aprendizaje, investigacion y liderazgo, integrando ingenieria, tecnologia y servicio comunitario.
+              <p className="mt-4 text-sm leading-relaxed text-[#3c4a5f]">
+                IEEE Xplore is your gateway to trusted research journals, conferences, standards, and educational courses.
+                Now with more than 7 million documents to help you fuel imagination and build new ideas.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
-                {[
-                  "Capitulos tecnicos",
-                  "Grupos de afinidad",
-                  "Eventos y congresos",
-                  "Proyectos con impacto",
-                ].map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-600"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                  Learn More and Subscribe
+                </button>
+                <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                  Get Published
+                </button>
               </div>
             </div>
-            <div className="flex flex-col gap-4">
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5">
-                <p className="text-sm font-semibold text-neutral-900">Vision</p>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                  Ser referente estudiantil en Ecuador por la formacion tecnica y la proyeccion internacional de sus miembros.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5">
-                <p className="text-sm font-semibold text-neutral-900">Valores</p>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                  Integridad, colaboracion, excelencia tecnica y compromiso social.
-                </p>
-              </div>
-              <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5">
-                <p className="text-sm font-semibold text-neutral-900">Comunidad</p>
-                <p className="mt-2 text-sm leading-relaxed text-neutral-600">
-                  Estudiantes de diversas facultades que comparten curiosidad, disciplina y deseo de transformar su entorno.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="capitulos" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
-          <div className="flex flex-col gap-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Capitulos tecnicos</p>
-                <h2 className="mt-3 font-[var(--font-heading)] text-3xl text-neutral-900 sm:text-4xl">
-                  Especializacion con alcance global.
-                </h2>
-              </div>
-              <span className="hidden rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-700 sm:inline-flex">
-                Redes IEEE
-              </span>
-            </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {chapters.map((chapter) => (
-                <div
-                  key={chapter.code}
-                  className="group rounded-2xl border border-neutral-200 bg-white p-5 transition hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_15px_40px_rgba(2,32,71,0.12)]"
-                >
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-500">
-                    {chapter.code}
-                  </p>
-                  <p className="mt-3 text-lg font-semibold text-neutral-900">
-                    {chapter.name}
-                  </p>
-                  <p className="mt-2 text-sm text-neutral-600">
-                    Actividades tecnicas, charlas y proyectos para conectar con la comunidad internacional IEEE.
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="afinidad" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
-          <div className="grid gap-8 rounded-3xl border border-neutral-200 bg-neutral-900 p-8 text-white lg:grid-cols-[1.1fr_1fr]">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-neutral-300">Grupos de afinidad</p>
-              <h2 className="mt-4 font-[var(--font-heading)] text-3xl sm:text-4xl">
-                Comunidad, inclusion y servicio.
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-neutral-200">
-                Los grupos de afinidad promueven espacios seguros, proyectos sociales y liderazgo con enfoque humano.
-              </p>
-            </div>
-            <div className="grid gap-4">
-              {affinityGroups.map((group) => (
-                <div key={group.code} className="rounded-2xl border border-neutral-700 bg-neutral-800 p-5">
-                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-400">
-                    {group.code}
-                  </p>
-                  <p className="mt-2 text-lg font-semibold text-white">{group.name}</p>
-                  <p className="mt-2 text-sm text-neutral-300">{group.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="eventos" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
-          <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr]">
-            <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Eventos y actividades</p>
-              <h2 className="mt-4 font-[var(--font-heading)] text-3xl text-neutral-900 sm:text-4xl">
-                Experiencias que impulsan tu perfil profesional.
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-neutral-700">
-                La rama organiza congresos, talleres y actividades internas para fortalecer habilidades tecnicas y trabajo en equipo.
-              </p>
-              <div className="mt-6 rounded-2xl border border-neutral-200 bg-white p-6">
-                <p className="text-sm font-semibold text-neutral-900">Calendario abierto</p>
-                <p className="mt-2 text-sm text-neutral-600">
-                  Revisamos actividades durante el ano academico y convocatorias para nuevas iniciativas.
-                </p>
-                <a
-                  href="http://site.ieee.org/sb-espol/calendario/"
-                  className="mt-4 inline-flex text-sm font-semibold text-blue-700"
-                >
-                  Ver calendario
-                </a>
-              </div>
-            </div>
-            <div className="grid gap-4">
-              {events.map((event) => (
-                <div
-                  key={event.title}
-                  className="rounded-2xl border border-neutral-200 bg-neutral-50 p-5"
-                >
-                  <p className="text-sm font-semibold text-neutral-900">{event.title}</p>
-                  <p className="mt-2 text-sm text-neutral-600">{event.detail}</p>
-                </div>
-              ))}
+            <div className="overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white shadow-[0_18px_40px_rgba(9,20,40,0.12)]">
+              <div className="h-64 bg-[radial-gradient(circle_at_top,_#2a6ba8,_#0d2a4a_70%)]" />
             </div>
           </div>
         </section>
 
         <section className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
-          <div className="rounded-3xl border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-blue-50 p-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">
-              Novedades y membresia
-            </p>
-            <h2 className="mt-4 font-[var(--font-heading)] text-3xl text-neutral-900 sm:text-4xl">
-              Informacion clave para unirte a IEEE.
-            </h2>
-            <div className="mt-6 grid gap-4 lg:grid-cols-3">
-              {membershipInfo.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-neutral-200 bg-white p-5">
-                  <p className="text-sm font-semibold text-neutral-900">{item.title}</p>
-                  <p className="mt-2 text-sm text-neutral-600">{item.body}</p>
-                </div>
-              ))}
+          <div className="grid gap-10 rounded-3xl bg-[#d9f1fb] p-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div>
+              <div className="flex items-center gap-6 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                <span>Cybersecurity</span>
+                <span className="text-[#6b7a90]">Simulations</span>
+              </div>
+              <p className="mt-6 text-sm leading-relaxed text-[#3c4a5f]">
+                "Because most connected systems use common off-the-shelf components, everything is now hackable, including medical
+                devices and their networks," says Florence Hudson.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                  Read the Full Article
+                </button>
+                <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                  See How IEEE Helps Raise the World&apos;s Standards
+                </button>
+              </div>
             </div>
-            <a
-              href="https://site.ieee.org/sb-espol/about-ieee/meeting-minutes/"
-              className="mt-6 inline-flex rounded-full bg-neutral-900 px-6 py-3 text-sm font-semibold text-white"
-            >
-              Hazte miembro
-            </a>
+            <div className="overflow-hidden rounded-2xl border border-[#b6d5e8] bg-white shadow-[0_18px_40px_rgba(9,20,40,0.12)]">
+              <div className="h-80 bg-[linear-gradient(180deg,_#6a7aa6,_#23304a)]" />
+              <div className="bg-[#8fd0ec] px-6 py-4 text-[#0b1f33]">
+                <p className="text-sm font-semibold">Florence Hudson</p>
+                <p className="mt-2 text-xs text-[#244057]">
+                  Chair of the IEEE 2933 Working Group, founder and CEO, FDHint.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="contacto" className="mx-auto w-full max-w-6xl px-6 pb-20 lg:px-10">
-          <div className="grid gap-8 rounded-3xl border border-neutral-200 bg-white p-8 lg:grid-cols-[1.1fr_1fr]">
+        <section id="transmitters" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-neutral-500">Directiva General 2023</p>
-              <h2 className="mt-4 font-[var(--font-heading)] text-3xl text-neutral-900 sm:text-4xl">
-                Siguenos y conecta con la rama.
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-neutral-700">
-                Mantente al dia con actividades, convocatorias y logros estudiantiles a traves de nuestros canales oficiales.
+              <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33]">Meet the IEEE Transmitters</h2>
+              <p className="mt-4 text-sm leading-relaxed text-[#3c4a5f]">
+                Transmitters are champions of innovation, showcasing the ways technology shapes a brighter future and drives global progress.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    className="rounded-full border border-neutral-200 px-4 py-2 text-sm font-semibold text-neutral-700 transition hover:border-neutral-400"
-                  >
-                    {link.label}
-                  </a>
+              <button className="mt-6 rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+                Learn More About This Group
+              </button>
+            </div>
+            <div className="overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white shadow-[0_18px_40px_rgba(9,20,40,0.12)]">
+              <div className="h-64 bg-[linear-gradient(135deg,_#0b5ea8,_#4dc4ff)]" />
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto w-full max-w-6xl px-6 pb-12 lg:px-10">
+          <div className="text-center">
+            <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33]">Engineer the Future. Join IEEE.</h2>
+            <button className="mt-6 rounded-full border border-[#0b5ea8] px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+              Join IEEE
+            </button>
+          </div>
+        </section>
+
+        <section id="explore" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
+          <div className="overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top,_#1f6db5,_#0b3e73_55%,_#082b4f_100%)] px-10 py-12 text-white">
+            <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+              <h3 className="font-[var(--font-heading)] text-3xl">Keep Exploring</h3>
+              <div className="grid gap-3 text-sm">
+                {keepExploringLinks.map((link) => (
+                  <span key={link} className="flex items-center gap-2">
+                    <span className="text-lg">›</span>
+                    {link}
+                  </span>
                 ))}
               </div>
-            </div>
-            <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6">
-              <p className="text-sm font-semibold text-neutral-900">Contacto</p>
-              <p className="mt-2 text-sm text-neutral-600">
-                Rama Estudiantil IEEE-ESPOL
-              </p>
-              <p className="mt-1 text-sm text-neutral-600">
-                Facultad de Ingenieria Electrica (FIEC)
-              </p>
-              <p className="mt-6 text-xs uppercase tracking-[0.3em] text-neutral-500">
-                Unete a la comunidad
-              </p>
-              <p className="mt-2 text-sm text-neutral-600">
-                Somos estudiantes listos para colaborar en proyectos, eventos y nuevas ideas.
-              </p>
             </div>
           </div>
         </section>
       </main>
 
-      <footer className="border-t border-neutral-200 bg-white/60">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-sm text-neutral-500 lg:flex-row lg:px-10">
-          <p>Copyright © 2026 IEEE ESPOL.</p>
-          <p>Inspirado en IEEE.org, contenido basado en IEEE-ESPOL.</p>
+      <footer className="border-t border-[#e6ecf5] bg-white">
+        <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-12 text-sm text-[#3c4a5f] lg:grid-cols-3 lg:px-10">
+          {footerColumns.map((column) => (
+            <div key={column.title}>
+              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-[#0b1f33]">
+                {column.title}
+              </p>
+              <div className="mt-4 grid gap-2">
+                {column.links.map((link) => (
+                  <span key={link}>{link}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="border-t border-[#e6ecf5] bg-[#f7f8fb]">
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs uppercase tracking-[0.3em] text-[#6b7a90] lg:flex-row lg:px-10">
+            <span>Copyright © 2026 IEEE ESPOL.</span>
+            <span>Inspired by IEEE.org.</span>
+          </div>
         </div>
       </footer>
+
+      <div className="fixed bottom-0 left-0 right-0 z-30 border-t border-[#e6ecf5] bg-white/95 px-6 py-4 text-xs text-[#3c4a5f]">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <p>
+            This site uses cookies to enable essential functionality, analytics, personalization, and targeted advertising. Read the
+            Privacy Policy for details.
+          </p>
+          <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+            Manage Preferences
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
