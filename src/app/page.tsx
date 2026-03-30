@@ -1,4 +1,4 @@
-import HeroCanvas from "@/components/HeroCanvas";
+import { HeroSection } from "@/components/blocks/hero-section-5";
 
 const happeningCards = [
   {
@@ -90,101 +90,9 @@ const tones: Record<string, { band: string; img: string }> = {
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-[#0b1f33]">
-      <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-[#7dc5ea]/70 lg:block" />
+      <HeroSection />
 
-      <div className="border-b border-[#e6ecf5] bg-white/90">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-2 text-[11px] uppercase tracking-[0.28em] text-[#6b7a90] lg:px-10">
-          <div className="flex flex-wrap gap-4">
-            <span>IEEE.org</span>
-            <span>IEEE Xplore</span>
-            <span>IEEE Standards</span>
-            <span>IEEE Spectrum</span>
-            <span>IEEE Sites</span>
-          </div>
-          <div className="hidden items-center gap-4 text-[12px] font-semibold uppercase tracking-[0.24em] text-[#0b5ea8] md:flex">
-            <span>Join IEEE</span>
-            <span>Donate</span>
-            <span>Cart (0)</span>
-            <span>Create Account</span>
-            <span>Sign In</span>
-          </div>
-        </div>
-      </div>
-
-      <header className="sticky top-0 z-20 border-b border-[#e6ecf5] bg-white/95 backdrop-blur">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4 lg:px-10">
-          <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#0b5ea8] text-[#0b5ea8]">
-              <span className="text-xs font-semibold">IEEE</span>
-            </div>
-            <div>
-              <p className="text-sm font-semibold tracking-[0.12em] text-[#0b5ea8]">IEEE</p>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-[#6b7a90]">
-                Advancing Technology for Humanity
-              </p>
-            </div>
-          </div>
-          <nav className="hidden items-center gap-6 text-sm font-semibold text-[#3c4a5f] lg:flex">
-            <a href="#happening" className="transition hover:text-[#0b5ea8]">
-              News
-            </a>
-            <a href="#innovations" className="transition hover:text-[#0b5ea8]">
-              Innovations
-            </a>
-            <a href="#impact" className="transition hover:text-[#0b5ea8]">
-              Impact
-            </a>
-            <a href="#transmitters" className="transition hover:text-[#0b5ea8]">
-              Community
-            </a>
-            <a href="#explore" className="transition hover:text-[#0b5ea8]">
-              Explore
-            </a>
-          </nav>
-          <div className="flex items-center gap-3">
-            <button
-              type="button"
-              className="hidden rounded-full border border-[#0b5ea8] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#0b5ea8] md:inline-flex"
-            >
-              Search
-            </button>
-            <button
-              type="button"
-              className="inline-flex items-center rounded-full border border-[#d8e2f0] px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#3c4a5f] lg:hidden"
-            >
-              Menu
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <main className="relative z-10">
-        <section className="mx-auto w-full max-w-6xl px-6 pb-16 pt-10 lg:px-10">
-          <div className="relative overflow-hidden rounded-3xl border border-[#d6e4f2] bg-[#061a2f]">
-            <div className="absolute inset-0 animated-banner opacity-80" />
-            <HeroCanvas />
-            <div className="relative z-10 flex flex-col gap-6 px-8 py-12 text-white sm:px-12">
-              <p className="text-xs font-semibold uppercase tracking-[0.4em] text-[#9dd8ff]">
-                IEEE | Advancing Technology for Humanity
-              </p>
-              <h1 className="font-[var(--font-heading)] text-3xl leading-tight sm:text-4xl lg:text-5xl">
-                Explore the world&apos;s largest technical community.
-              </h1>
-              <p className="max-w-2xl text-sm text-[#d5e9ff] sm:text-base">
-                Research, standards, conferences, and global connections that power innovation across disciplines.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <button className="rounded-full bg-white px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
-                  Join IEEE
-                </button>
-                <button className="rounded-full border border-white/60 px-6 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white">
-                  Learn More
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-
+      <div className="relative z-10">
         <section id="happening" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-12 lg:px-10">
           <div className="text-center">
             <h1 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] sm:text-4xl">
@@ -284,8 +192,8 @@ export default function Home() {
                 <span className="text-[#6b7a90]">Simulations</span>
               </div>
               <p className="mt-6 text-sm leading-relaxed text-[#3c4a5f]">
-                "Because most connected systems use common off-the-shelf components, everything is now hackable, including medical
-                devices and their networks," says Florence Hudson.
+                &ldquo;Because most connected systems use common off-the-shelf components, everything is now hackable, including medical
+                devices and their networks,&rdquo; says Florence Hudson.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
@@ -349,7 +257,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
       <footer className="border-t border-[#e6ecf5] bg-white">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-6 py-12 text-sm text-[#3c4a5f] lg:grid-cols-3 lg:px-10">
@@ -380,7 +288,7 @@ export default function Home() {
             This site uses cookies to enable essential functionality, analytics, personalization, and targeted advertising. Read the
             Privacy Policy for details.
           </p>
-          <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0b5ea8]">
+          <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#0b5ea8]">
             Manage Preferences
           </button>
         </div>

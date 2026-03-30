@@ -7,7 +7,21 @@
   --ink-subtle: #3c4a5f;
   --brand: #0b5ea8;
   --brand-dark: #08437a;
-  --accent: #f59d3d;
+
+  /* shadcn/ui component tokens */
+  --primary: #0b5ea8;
+  --primary-foreground: #ffffff;
+  --secondary: #f0f4f8;
+  --secondary-foreground: #0b1f33;
+  --muted: #f0f4f8;
+  --muted-foreground: #6b7a90;
+  --ui-accent: #e8f0fe;
+  --accent-foreground: #0b1f33;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e6ecf5;
+  --input: #e6ecf5;
+  --ring: #0b5ea8;
 }
 
 @theme inline {
@@ -15,6 +29,21 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);
+
+  /* shadcn/ui color utilities */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--ui-accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 }
 
 * {
