@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { HeroSection } from "@/components/blocks/hero-section-5";
 
+=======
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+>>>>>>> 584c418 (chage desing)
 const happeningCards = [
   {
     label: "NEW IEEE MEMBERS",
@@ -90,7 +95,16 @@ const tones: Record<string, { band: string; img: string }> = {
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-[#0b1f33]">
+<<<<<<< HEAD
       <HeroSection />
+=======
+
+
+      <Header />
+
+      <main className="relative z-10">
+        <Hero />
+>>>>>>> 584c418 (chage desing)
 
       <div className="relative z-10">
         <section id="happening" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-12 lg:px-10">

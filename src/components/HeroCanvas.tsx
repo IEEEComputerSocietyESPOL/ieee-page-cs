@@ -1,57 +1,70 @@
 "use client";
 
-import { Canvas, useFrame, type RootState } from "@react-three/fiber";
-import { useMemo, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useRef, useMemo } from "react";
 import * as THREE from "three";
 
-function ParticleField() {
-  const pointsRef = useRef<THREE.Points>(null);
-  const count = 600;
+function SaddleSurface() {
+    const groupRef = useRef<THREE.Group>(null);
 
-  const positions = useMemo(() => {
-    const data = new Float32Array(count * 3);
-    for (let i = 0; i < count; i += 1) {
-      const i3 = i * 3;
-      data[i3] = (Math.random() - 0.5) * 14;
-      data[i3 + 1] = (Math.random() - 0.5) * 7;
-      data[i3 + 2] = (Math.random() - 0.5) * 10;
-    }
-    return data;
-  }, []);
+    const geometry = useMemo(() => {
+        // Parabolide hiperbolico (silla de montar) - Hyperbolic paraboloid (saddle)
+        const geo = new THREE.PlaneGeometry(50, 50, 70, 70);
+        const pos = geo.attributes.position;
 
-  useFrame((state: RootState) => {
-    if (!pointsRef.current) return;
-    const t = state.clock.getElapsedTime();
-    pointsRef.current.rotation.y = t * 0.06;
-    pointsRef.current.rotation.x = Math.sin(t * 0.2) * 0.05;
-  });
+        for (let i = 0; i < pos.count; i++) {
+            const x = pos.getX(i);
+            const y = pos.getY(i);
+            // z = (y^2 - x^2)
+            const z = (Math.pow(y, 2) - Math.pow(x, 2)) * 0.015;
+            pos.setZ(i, z);
+        }
+        geo.computeVertexNormals();
+        return geo;
+    }, []);
 
-  return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          args={[positions, 3]}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        color="#8fd0ff"
-        size={0.05}
-        opacity={0.6}
-        transparent
-        depthWrite={false}
-      />
-    </points>
-  );
+    useFrame((state) => {
+        if (groupRef.current) {
+            const t = state.clock.getElapsedTime();
+            // Rotar lentamente
+            groupRef.current.rotation.z = t * 0.1;
+            // Leve oscilacion
+            groupRef.current.position.y = Math.sin(t * 0.3) * 0.5 - 5;
+        }
+    });
+
+    return (
+        <group ref={groupRef} rotation={[-Math.PI / 2.5, 0, 0]}>
+            {/* Puntos brillantes para los vertices */}
+            <points geometry={geometry}>
+                <pointsMaterial
+                    color="#00a3e0"
+                    size={0.15}
+                    transparent
+                    opacity={0.8}
+                />
+            </points>
+            {/* Wireframe para darle un look de ingenieria/matematicas */}
+            <mesh geometry={geometry}>
+                <meshBasicMaterial
+                    color="#0085ca"
+                    wireframe={true}
+                    transparent
+                    opacity={0.2}
+                />
+            </mesh>
+        </group>
+    );
 }
 
 export default function HeroCanvas() {
-  return (
-    <div className="pointer-events-none absolute inset-0">
-      <Canvas camera={{ position: [0, 0, 8], fov: 50 }} dpr={[1, 1.5]}>
-        <ambientLight intensity={0.7} />
-        <ParticleField />
-      </Canvas>
-    </div>
-  );
+    return (
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020b14] to-[#0a192f] z-0 overflow-hidden pointer-events-none">
+            <Canvas camera={{ position: [0, 5, 20], fov: 60 }} dpr={[1, 2]}>
+                <color attach="background" args={['#020b14']} />
+                <ambientLight intensity={0.5} />
+                <SaddleSurface />
+            </Canvas>
+        </div>
+    );
 }
