@@ -1,0 +1,42 @@
+[
+  {
+    "id": "cis",
+    "name": "Computational Intelligence Society",
+    "image": "/logo_character/cis.png"
+  },
+  {
+    "id": "cs",
+    "name": "Computer Society",
+    "image": "/logo_character/cs.png"
+  },
+  {
+    "id": "wie",
+    "name": "Women in Engineering",
+    "image": "/logo_character/wie.png"
+  },
+  {
+    "id": "ras",
+    "name": "Robotics and Automation Society",
+    "image": "/logo_character/ras.png"
+  },
+  {
+    "id": "pes",
+    "name": "Power & Energy Society",
+    "image": "/logo_character/pes.png"
+  },
+  {
+    "id": "cas",
+    "name": "Circuits and Systems Society",
+    "image": "/logo_character/cas.png"
+  },
+  {
+    "id": "embs",
+    "name": "Engineering in Medicine and Biology Society",
+    "image": "/logo_character/embs.png"
+  },
+  {
+    "id": "comsoc",
+    "name": "Communications Society",
+    "image": "/logo_character/comsoc.png"
+  }
+]

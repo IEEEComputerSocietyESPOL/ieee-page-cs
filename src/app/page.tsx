@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 import { HeroSection } from "@/components/blocks/hero-section-5";
 
-=======
+
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
->>>>>>> 584c418 (chage desing)
+
 const happeningCards = [
   {
     label: "NEW IEEE MEMBERS",
@@ -95,18 +94,11 @@ const tones: Record<string, { band: string; img: string }> = {
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white text-[#0b1f33]">
-<<<<<<< HEAD
+
       <HeroSection />
-=======
-
-
-      <Header />
 
       <main className="relative z-10">
-        <Hero />
->>>>>>> 584c418 (chage desing)
-
-      <div className="relative z-10">
+        <div className="relative z-10">
         <section id="happening" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-12 lg:px-10">
           <div className="text-center">
             <h1 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] sm:text-4xl">
@@ -295,18 +287,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      </main>
 
-      <div className="fixed bottom-0 left-0 right-0 z-30 border-t border-[#e6ecf5] bg-white/95 px-6 py-4 text-xs text-[#3c4a5f]">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <p>
-            This site uses cookies to enable essential functionality, analytics, personalization, and targeted advertising. Read the
-            Privacy Policy for details.
-          </p>
-          <button className="rounded-full border border-[#0b5ea8] px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[#0b5ea8]">
-            Manage Preferences
-          </button>
-        </div>
-      </div>
     </div>
   );
 }

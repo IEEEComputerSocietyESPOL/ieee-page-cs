@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "3d-web-experience": {
+      "source": "sickn33/antigravity-awesome-skills",
+      "sourceType": "github",
+      "computedHash": "18b4f9dca7aa13d0f65938ed926c7865d635d74c58ea60291e313722f1d3a9dd"
+    },
+    "web-design-guidelines": {
+      "source": "vercel-labs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "d8e7d3afe37dcc8a97b99ffb5afdb4d0919ae0092ea8b68f44eb201f035e33ac"
+    }
+  }
+}
