@@ -4,6 +4,17 @@ import { HeroSection } from "@/components/blocks/hero-section-5";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 
+const chapterStats = [
+  { id: "cs", name: "Computer Society", count: 45, color: "#006699" },
+  { id: "ras", name: "Robotics & Automation Society", count: 35, color: "#8c1515" },
+  { id: "wie", name: "Women in Engineering", count: 40, color: "#522367" },
+  { id: "pes", name: "Power & Energy Society", count: 25, color: "#006633" },
+  { id: "cis", name: "Computational Intelligence Society", count: 30, color: "#0099cc" },
+  { id: "cas", name: "Circuits & Systems Society", count: 20, color: "#2a7042" },
+  { id: "embs", name: "Medicine & Biology Society", count: 30, color: "#b81b1b" },
+  { id: "comsoc", name: "Communications Society", count: 25, color: "#005bbb" },
+];
+
 const happeningCards = [
   {
     label: "NEW IEEE MEMBERS",
@@ -99,6 +110,37 @@ export default function Home() {
 
       <main className="relative z-10">
         <div className="relative z-10">
+        <section id="stats" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-16 lg:px-10">
+          <div className="flex flex-col md:flex-row gap-8 items-center justify-between mb-12">
+             <div className="flex-1">
+                <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] md:text-5xl">Nuestro Impacto</h2>
+                <p className="mt-4 max-w-lg text-[#3c4a5f]">Somos la rama estudiantil más activa, compuesta por múltiples capítulos técnicos dedicados a potenciar el talento de cada miembro.</p>
+             </div>
+             <div className="flex flex-col shrink-0 text-center md:text-right md:border-l-4 md:border-[#0b5ea8] md:pl-6 md:py-2">
+                <span className="text-5xl md:text-7xl font-bold text-[#0b5ea8]">250+</span>
+                <span className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6b7a90] mt-2">Miembros Activos</span>
+             </div>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+             {chapterStats.map((stat) => (
+                <div key={stat.id} className="group relative overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white p-6 shadow-[0_4px_20px_rgba(9,20,40,0.04)] transition-all duration-300 hover:shadow-[0_12px_30px_rgba(9,20,40,0.1)] hover:-translate-y-1">
+                   <div 
+                      className="absolute -right-6 -top-6 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20" 
+                      style={{ backgroundColor: stat.color }} 
+                   />
+                   <div className="relative z-10 flex flex-col justify-between h-full min-h-[120px]">
+                      <p className="text-sm font-semibold uppercase tracking-wider text-[#3c4a5f] leading-snug">{stat.name}</p>
+                      <div className="mt-6 flex items-end justify-between">
+                         <span className="text-4xl font-bold text-[#0b1f33]">{stat.count}</span>
+                         <span className="text-xs font-semibold uppercase tracking-wider text-[#6b7a90] mb-1.5">Miembros</span>
+                      </div>
+                   </div>
+                </div>
+             ))}
+          </div>
+        </section>
+
         <section id="happening" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-12 lg:px-10">
           <div className="text-center">
             <h1 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] sm:text-4xl">
