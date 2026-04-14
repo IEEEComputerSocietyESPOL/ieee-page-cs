@@ -29,7 +29,7 @@ function SaddleSurface() {
             // Rotar lentamente
             groupRef.current.rotation.z = t * 0.1;
             // Leve oscilacion
-            groupRef.current.position.y = Math.sin(t * 0.3) * 0.5 - 5;
+            groupRef.current.position.y = Math.sin(t * 0.3) * 0.5 - 2;
         }
     });
 

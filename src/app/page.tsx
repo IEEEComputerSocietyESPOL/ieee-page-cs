@@ -5,14 +5,14 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 
 const chapterStats = [
-  { id: "cs", name: "Computer Society", count: 45, color: "#006699" },
-  { id: "ras", name: "Robotics & Automation Society", count: 35, color: "#8c1515" },
+  { id: "cs", name: "Computer Society", count: 45, color: "#FFA300" },
+  { id: "ras", name: "Robotics & Automation Society", count: 35, color: "#98002E." },
   { id: "wie", name: "Women in Engineering", count: 40, color: "#522367" },
   { id: "pes", name: "Power & Energy Society", count: 25, color: "#006633" },
   { id: "cis", name: "Computational Intelligence Society", count: 30, color: "#0099cc" },
   { id: "cas", name: "Circuits & Systems Society", count: 20, color: "#2a7042" },
-  { id: "embs", name: "Medicine & Biology Society", count: 30, color: "#b81b1b" },
-  { id: "comsoc", name: "Communications Society", count: 25, color: "#005bbb" },
+  { id: "embs", name: "Medicine & Biology Society", count: 30, color: "#772583" },
+  { id: "comsoc", name: "Communications Society", count: 25, color: "#00AEEF" },
 ];
 
 const happeningCards = [
@@ -125,17 +125,22 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
              {chapterStats.map((stat) => (
                 <div key={stat.id} className="group relative overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white p-6 shadow-[0_4px_20px_rgba(9,20,40,0.04)] transition-all duration-300 hover:shadow-[0_12px_30px_rgba(9,20,40,0.1)] hover:-translate-y-1">
-                   <div 
-                      className="absolute -right-6 -top-6 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20" 
-                      style={{ backgroundColor: stat.color }} 
-                   />
-                   <div className="relative z-10 flex flex-col justify-between h-full min-h-[120px]">
-                      <p className="text-sm font-semibold uppercase tracking-wider text-[#3c4a5f] leading-snug">{stat.name}</p>
-                      <div className="mt-6 flex items-end justify-between">
-                         <span className="text-4xl font-bold text-[#0b1f33]">{stat.count}</span>
-                         <span className="text-xs font-semibold uppercase tracking-wider text-[#6b7a90] mb-1.5">Miembros</span>
-                      </div>
-                   </div>
+                  {/* Franja de color arriba */}
+                  <div 
+                    className="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl"
+                    style={{ backgroundColor: stat.color }}
+                  />
+                  <div 
+                    className="absolute -right-6 -top-6 h-32 w-32 rounded-full opacity-10 blur-3xl transition-opacity duration-300 group-hover:opacity-20" 
+                    style={{ backgroundColor: stat.color }} 
+                  />
+                  <div className="relative z-10 flex flex-col justify-between h-full min-h-[120px]">
+                    <p className="text-sm font-semibold uppercase tracking-wider text-[#3c4a5f] leading-snug">{stat.name}</p>
+                    <div className="mt-6 flex items-end justify-between">
+                      <span className="text-4xl font-bold text-[#0b1f33]">{stat.count}</span>
+                      <span className="text-xs font-semibold uppercase tracking-wider text-[#6b7a90] mb-1.5">Miembros</span>
+                    </div>
+                  </div>
                 </div>
              ))}
           </div>

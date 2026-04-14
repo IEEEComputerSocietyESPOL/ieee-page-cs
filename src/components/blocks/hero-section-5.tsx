@@ -18,14 +18,14 @@ export function HeroSection() {
             <Navbar1 {...ieeeNavData} />
             <div className="overflow-x-hidden">
                 <section>
-                    <div className="relative py-24 md:pb-32 lg:pb-36 lg:pt-72 bg-[#020b14] overflow-hidden">
+                    <div className="relative py-24 md:pb-4 lg:pb-6 lg:pt-72 bg-[#020b14] overflow-hidden">
                         <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-6 lg:block lg:px-12 pointer-events-none">
                             <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
                                 <h1 className="mt-8 max-w-2xl text-balance text-5xl md:text-6xl lg:mt-16 xl:text-7xl text-white pointer-events-auto">
                                     Advancing Technology for Humanity
                                 </h1>
                                 <p className="mt-8 max-w-2xl text-balance text-lg text-gray-300 pointer-events-auto">
-                                    Connect with 400,000+ engineers, access millions of research documents, and shape the future of technology through IEEE&apos;s global community.
+                                    Conéctate con más de 400.000 ingenieros, accede a millones de documentos de investigación y contribuye a dar forma al futuro de la tecnología a través de la comunidad global del IEEE.
                                 </p>
 
                                 <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start pointer-events-auto">
@@ -44,13 +44,13 @@ export function HeroSection() {
                                         variant="ghost"
                                         className="h-12 rounded-full px-5 text-base text-gray-300 hover:bg-white/10 hover:text-white">
                                         <Link href="#innovations">
-                                            <span className="text-nowrap">Explore Research</span>
+                                            <span className="text-nowrap">Explorar Investigación</span>
                                         </Link>
                                     </Button>
                                 </div>
                             </div>
                         </div>
-                        <div className="aspect-[2/3] absolute inset-1 overflow-hidden rounded-3xl sm:aspect-video lg:rounded-[3rem]">
+                        <div className="aspect-[2/3] absolute inset-1 overflow-hidden rounded-3xl sm:aspect-video lg:rounded-[3rem] [mask-image:linear-gradient(to_bottom,black_80%,transparent_100%)]">
                             <HeroCanvas />
                         </div>
                     </div>
@@ -59,7 +59,7 @@ export function HeroSection() {
                     <div className="group relative m-auto max-w-7xl px-6">
                         <div className="flex flex-col items-center md:flex-row">
                             <div className="md:max-w-44 md:border-r md:pr-6">
-                                <p className="text-end text-sm text-[#0b1f33] font-medium">Nuestros logos de todos los capítulos</p>
+                                <p className="text-center text-sm text-[#0b1f33] font-medium">Nuestros Capítulos Técnicos y Grupos de Afinidad</p>
                             </div>
                             <div className="relative py-6 md:w-[calc(100%-11rem)]">
                                 <InfiniteSlider
