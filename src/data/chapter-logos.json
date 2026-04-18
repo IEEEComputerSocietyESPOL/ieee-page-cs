@@ -25,9 +25,9 @@
     "image": "/logo_character/pes.png"
   },
   {
-    "id": "cas",
-    "name": "Circuits and Systems Society",
-    "image": "/logo_character/cas.png"
+    "id": "ias",
+    "name": "Industry Applications Society",
+    "image": "/logo_character/ias.png"
   },
   {
     "id": "embs",
@@ -38,5 +38,25 @@
     "id": "comsoc",
     "name": "Communications Society",
     "image": "/logo_character/comsoc.png"
+  },
+  {
+    "id": "css",
+    "name": "Control Systems Society",
+    "image": "/logo_character/css.png"
+  },
+  {
+    "id": "phs",
+    "name": "Photonics Society",
+    "image": "/logo_character/phs.png"
+  },
+  {
+    "id": "oes",
+    "name": "Oceanic Engineering Society",
+    "image": "/logo_character/oes.png"
+  },
+  {
+    "id": "sight",
+    "name": "SIGHT",
+    "image": "/logo_character/sight.png"
   }
 ]

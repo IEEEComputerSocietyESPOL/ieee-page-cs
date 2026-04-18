@@ -33,18 +33,9 @@ export function HeroSection() {
                                         asChild
                                         size="lg"
                                         className="h-12 rounded-full pl-5 pr-3 text-base bg-[#0b5ea8] text-white hover:bg-[#0b5ea8]/90">
-                                        <Link href="#happening">
+                                        <Link href="https://www.ieee.org/membership/join/index.html" target="_blank" rel="noopener noreferrer">
                                             <span className="text-nowrap">Join IEEE</span>
                                             <ChevronRight className="ml-1" />
-                                        </Link>
-                                    </Button>
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        variant="ghost"
-                                        className="h-12 rounded-full px-5 text-base text-gray-300 hover:bg-white/10 hover:text-white">
-                                        <Link href="#innovations">
-                                            <span className="text-nowrap">Explorar Investigación</span>
                                         </Link>
                                     </Button>
                                 </div>
@@ -71,7 +62,7 @@ export function HeroSection() {
                                             <img 
                                                 src={logo.image} 
                                                 alt={logo.name} 
-                                                className="max-h-16 w-auto object-contain"
+                                                className="h-20 w-auto object-contain max-w-[180px]"
                                                 onError={(e) => {
                                                     // Fallback if image not found
                                                     e.currentTarget.style.display = 'none';

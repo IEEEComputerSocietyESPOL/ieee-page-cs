@@ -56,6 +56,8 @@ interface Navbar1Props {
       url: string;
     };
   };
+  forceScrolled?: boolean;
+  darkMode?: boolean;
 }
 
 const Navbar1 = ({
@@ -145,11 +147,13 @@ const Navbar1 = ({
   ],
   auth = {
     login: { text: "Log in", url: "#" },
-    signup: { text: "Join IEEE", url: "#" },
+    signup: { text: "Join IEEE", url: "https://www.ieee.org/membership/join/index.html" },
   },
+  forceScrolled = false,
+  darkMode = false,
 }: Navbar1Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const scrolled = forceScrolled || isScrolled;
   useEffect(() => {
     const handleScroll = () => {
       // 100px or hero section height. Let's use 100 for immediate stickiness or a reasonable threshold like 50.
@@ -166,7 +170,11 @@ const Navbar1 = ({
   return (
     <section 
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-4 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-md py-3 text-[#0b5ea8]" : "bg-transparent text-white"
+        scrolled 
+          ? darkMode
+            ? "bg-[#020b14] py-3 text-white"
+            : "bg-white/95 backdrop-blur-md shadow-md py-3 text-[#0b5ea8]"
+          : "bg-transparent text-white"
       }`}
     >
       <div className="mx-auto w-full max-w-[1500px] px-4 lg:px-8">
@@ -181,7 +189,7 @@ const Navbar1 = ({
           <div className="flex-1 flex justify-center w-full">
             <NavigationMenu>
               <NavigationMenuList>
-                {menu.map((item) => renderMenuItem(item, isScrolled))}
+                {menu.map((item) => renderMenuItem(item, scrolled, darkMode))}
               </NavigationMenuList>
             </NavigationMenu>
           </div>
@@ -199,7 +207,7 @@ const Navbar1 = ({
             </a>
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className={`border-black/20 bg-transparent ${isScrolled ? "text-[#0b5ea8] hover:bg-[#0b5ea8]/10" : "text-white hover:bg-white/10 border-white/20"} hover:text-current`}>
+                <Button variant="outline" size="icon" className={`border-black/20 bg-transparent ${scrolled ? "text-[#0b5ea8] hover:bg-[#0b5ea8]/10" : "text-white hover:bg-white/10 border-white/20"} hover:text-current`}>
                   <Menu className="size-4" />
                 </Button>
               </SheetTrigger>
@@ -250,16 +258,16 @@ const Navbar1 = ({
   );
 };
 
-const renderMenuItem = (item: MenuItem, isScrolled: boolean) => {
-  const triggerText = isScrolled ? "text-[#0b5ea8]" : "text-white";
-  const triggerHover = isScrolled 
+const renderMenuItem = (item: MenuItem, isScrolled: boolean, darkMode: boolean = false) => {
+  const triggerText = isScrolled && !darkMode? "text-[#0b5ea8]" : "text-white";
+  const triggerHover = isScrolled && !darkMode
     ? "hover:bg-[#0b5ea8]/10 hover:text-[#0b5ea8] focus:bg-[#0b5ea8]/10 focus:text-[#0b5ea8] data-[state=open]:bg-[#0b5ea8]/10 data-[state=open]:text-[#0b5ea8]" 
     : "hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white";
 
-  const dropdownBg = isScrolled ? "bg-white/95 border-gray-200" : "bg-[#020b14]/90 border-white/10";
-  const dropdownItemText = isScrolled ? "text-[#0b1f33]" : "text-white";
-  const dropdownItemHover = isScrolled ? "hover:bg-gray-100/80" : "hover:bg-white/10";
-  const dropdownDescText = isScrolled ? "text-gray-500" : "text-gray-400";
+  const dropdownBg = isScrolled && !darkMode ? "bg-white/95 border-gray-200" : "bg-[#020b14]/90 border-white/10";
+  const dropdownItemText = isScrolled && !darkMode ? "text-[#0b1f33]" : "text-white";
+  const dropdownItemHover = isScrolled && !darkMode ? "hover:bg-gray-100/80" : "hover:bg-white/10";
+  const dropdownDescText = isScrolled && !darkMode ? "text-gray-500" : "text-gray-400";
 
   if (item.items) {
     return (

@@ -5,9 +5,11 @@ import { cn } from "@/lib/utils";
 export const IEEELogo = ({ className }: { className?: string }) => {
     return (
         <div className={cn('flex items-center gap-2', className)}>
-            <div className="flex w-9 h-9 items-center justify-center rounded-full border-2 border-[#0b5ea8] bg-[#0b5ea8] text-white">
-                <span className="text-[9px] font-extrabold leading-none tracking-tight">IEEE</span>
-            </div>
+            <img 
+                src="/ieeeespol-logo.png" 
+                alt="IEEE Logo" 
+                className="h-20 w-auto object-contain"
+            />
         </div>
     )
 }
@@ -54,24 +56,8 @@ export const ieeeNavData = {
       ],
     },
     {
-      title: "EVENTOS & ACTIVIDADES",
-      url: "#",
-      items: [
-        { title: "Congresos", url: "/eventos-y-actividades/congresos" },
-        { title: "Cursos y Talleres", url: "/eventos-y-actividades/cursos-y-talleres" },
-        { title: "Otras Actividades", url: "/eventos-y-actividades/otras-actividades" },
-        { title: "Concursos", url: "/eventos-y-actividades/concursos" },
-        { title: "Premios Obtenidos", url: "/eventos-y-actividades/premios" },
-        { title: "Calendario", url: "/eventos-y-actividades/calendario" },
-      ],
-    },
-    {
       title: "CONTACTO",
-      url: "#",
-    },
-    {
-      title: "CAPÍTULOS EVENTOS",
-      url: "#",
+      url: "/contact",
     },
   ],
   mobileExtraLinks: [
@@ -80,6 +66,6 @@ export const ieeeNavData = {
   ],
   auth: {
     login: { text: "Log in", url: "/login" },
-    signup: { text: "Join IEEE", url: "https://www.ieee.org/membership-catalog/productdetail/showProductDetailPage.html?product=MEMIEEE500&searchResults=Y" },
+    signup: { text: "Join IEEE", url: "https://www.ieee.org/membership/join/index.html" },
   },
 };
