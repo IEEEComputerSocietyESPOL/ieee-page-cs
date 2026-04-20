@@ -35,7 +35,7 @@ export default function MembresiasPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <div className="bg-white border-b border-[#e5eaf3]">
-        <Navbar1 {...ieeeNavData} forceScrolled={true} darkMode={false} />
+        <Navbar1 {...ieeeNavData} forceScrolled={true} />
       </div>
 
       <main className="flex-1 container mx-auto px-6 pt-32 pb-20 max-w-6xl">
@@ -70,29 +70,25 @@ export default function MembresiasPage() {
         <div className="mb-20">
           <p className="text-xs uppercase tracking-[0.3em] text-[#0b5ea8] font-semibold mb-4">Tarifas</p>
           <h2 className="text-3xl font-bold text-[#0b1f33] mb-10">Precios de Membresía</h2>
-          <div className="flex flex-col lg:flex-row gap-10 items-start">
-            
-            {/* Tabla */}
-            <div className="flex-1 w-full overflow-hidden rounded-2xl border border-[#e5eaf3] shadow-lg">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-[#0b5ea8]">
-                    <th className="text-left text-white font-semibold px-6 py-4 uppercase tracking-wider">Sociedad</th>
-                    <th className="text-center text-white font-semibold px-6 py-4 uppercase tracking-wider">Estudiantil</th>
-                    <th className="text-center text-white font-semibold px-6 py-4 uppercase tracking-wider">Profesional</th>
+          <div className="w-full overflow-hidden rounded-2xl border border-[#e5eaf3] shadow-lg">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-[#0b5ea8]">
+                  <th className="text-left text-white font-semibold px-6 py-4 uppercase tracking-wider">Sociedad</th>
+                  <th className="text-center text-white font-semibold px-6 py-4 uppercase tracking-wider">Estudiantil</th>
+                  <th className="text-center text-white font-semibold px-6 py-4 uppercase tracking-wider">Profesional</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-[#e5eaf3]">
+                {precios.map((p, idx) => (
+                  <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-[#f8fafc]"}>
+                    <td className="px-6 py-4 text-[#0b1f33] font-bold">{p.nombre}</td>
+                    <td className="px-6 py-4 text-center text-[#0b5ea8] font-bold">{p.estudiantil}</td>
+                    <td className="px-6 py-4 text-center text-[#6b7a90] font-medium">{p.profesional}</td>
                   </tr>
-                </thead>
-                <tbody className="divide-y divide-[#e5eaf3]">
-                  {precios.map((p, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? "bg-white" : "bg-[#f8fafc]"}>
-                      <td className="px-6 py-4 text-[#0b1f33] font-bold">{p.nombre}</td>
-                      <td className="px-6 py-4 text-center text-[#0b5ea8] font-bold">{p.estudiantil}</td>
-                      <td className="px-6 py-4 text-center text-[#6b7a90] font-medium">{p.profesional}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -103,11 +99,9 @@ export default function MembresiasPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pasos.map((paso) => (
               <div key={paso.num} className="bg-white border border-[#e5eaf3] rounded-3xl p-8 shadow-sm relative overflow-hidden h-full">
-                {/* Número de fondo - Ajustado para que coincida con la imagen */}
                 <span className="absolute top-2 right-4 text-7xl font-bold text-[#0b5ea8] opacity-[0.08] select-none">
                   {paso.num}
                 </span>
-                
                 <div className="relative z-10">
                   <span className="text-sm font-bold text-[#0b5ea8] mb-6 block">
                     Paso {paso.num}

@@ -46,52 +46,6 @@ export function HeroSection() {
                         </div>
                     </div>
                 </section>
-                <section className="bg-background pb-2 pt-2">
-                    <div className="group relative m-auto max-w-7xl px-6">
-                        <div className="flex flex-col items-center md:flex-row">
-                            <div className="md:max-w-44 md:border-r md:pr-6">
-                                <p className="text-center text-sm text-[#0b1f33] font-medium">Nuestros Capítulos Técnicos y Grupos de Afinidad</p>
-                            </div>
-                            <div className="relative py-6 md:w-[calc(100%-11rem)]">
-                                <InfiniteSlider
-                                    speedOnHover={100000}
-                                    speed={40}
-                                    gap={60}>
-                                    {chapterLogos.map((logo) => (
-                                        <div key={logo.id} className="flex items-center justify-center opacity-70 hover:opacity-100 transition-opacity min-w-32">
-                                            <img 
-                                                src={logo.image} 
-                                                alt={logo.name} 
-                                                className="h-20 w-auto object-contain max-w-[180px]"
-                                                onError={(e) => {
-                                                    // Fallback if image not found
-                                                    e.currentTarget.style.display = 'none';
-                                                    if (e.currentTarget.nextElementSibling) {
-                                                        (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'block';
-                                                    }
-                                                }}
-                                            />
-                                            <span style={{display: 'none'}} className="font-semibold text-sm text-[#0b5ea8] text-center px-2">{logo.name}</span>
-                                        </div>
-                                    ))}
-                                </InfiniteSlider>
-
-                                <div className="bg-gradient-to-r from-background absolute inset-y-0 left-0 w-20"></div>
-                                <div className="bg-gradient-to-l from-background absolute inset-y-0 right-0 w-20"></div>
-                                <ProgressiveBlur
-                                    className="pointer-events-none absolute left-0 top-0 h-full w-20"
-                                    direction="left"
-                                    blurIntensity={1}
-                                />
-                                <ProgressiveBlur
-                                    className="pointer-events-none absolute right-0 top-0 h-full w-20"
-                                    direction="right"
-                                    blurIntensity={1}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </>
     )

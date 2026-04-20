@@ -38,21 +38,26 @@ export const ieeeNavData = {
       title: "CAPÍTULOS TÉCNICOS",
       url: "#",
       items: [
+        { title: "CIS", url: "/capitulos-tecnicos/cis" },
+        { title: "CS", url: "/capitulos-tecnicos/cs" },
+        { title: "CSS", url: "/capitulos-tecnicos/css" },
         { title: "COMSOC", url: "/capitulos-tecnicos/comsoc" },
+        { title: "EMBS", url: "/capitulos-tecnicos/embs" },
+        { title: "GRSS", url: "/capitulos-tecnicos/grss" },
         { title: "IAS", url: "/capitulos-tecnicos/ias" },
         { title: "RAS", url: "/capitulos-tecnicos/ras" },
-        { title: "CS", url: "/capitulos-tecnicos/cs" },
-        { title: "PES", url: "/capitulos-tecnicos/pes" },
-        { title: "CSS", url: "/capitulos-tecnicos/css" },
         { title: "OES", url: "/capitulos-tecnicos/oes" },
+        { title: "PES", url: "/capitulos-tecnicos/pes" },
+        { title: "PHOTONICS", url: "/capitulos-tecnicos/photonics" },
+        
       ],
     },
     {
       title: "GRUPOS DE AFINIDAD",
       url: "#",
       items: [
-        { title: "WIE", url: "/grupos-de-afinidad/wie" },
         { title: "SIGHT", url: "/grupos-de-afinidad/sight" },
+        { title: "WIE", url: "/grupos-de-afinidad/wie" },
       ],
     },
     {

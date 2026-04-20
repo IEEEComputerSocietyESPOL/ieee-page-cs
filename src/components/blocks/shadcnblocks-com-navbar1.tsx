@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
-import ThemeToggle from "@/components/ThemeToggle";
 
 import {
   Accordion,
@@ -58,7 +57,6 @@ interface Navbar1Props {
     };
   };
   forceScrolled?: boolean;
-  darkMode?: boolean;
 }
 
 const Navbar1 = ({
@@ -144,7 +142,6 @@ const Navbar1 = ({
     signup: { text: "Join IEEE", url: "https://www.ieee.org/membership/join/index.html" },
   },
   forceScrolled = false,
-  darkMode = false,
 }: Navbar1Props) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const scrolled = forceScrolled || isScrolled;
@@ -161,9 +158,7 @@ const Navbar1 = ({
     <section
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 py-4 ${
         scrolled
-          ? darkMode
-            ? "bg-[#020b14] dark:bg-[#020b14] py-3 text-white"
-            : "bg-white/95 dark:bg-[#020b14]/95 backdrop-blur-md shadow-md py-3 text-[#0b5ea8] dark:text-white"
+          ? "bg-white/95 backdrop-blur-md shadow-md py-3 text-[#0b5ea8]"
           : "bg-transparent text-white"
       }`}
     >
@@ -181,13 +176,12 @@ const Navbar1 = ({
           <div className="flex-1 flex justify-center w-full">
             <NavigationMenu>
               <NavigationMenuList>
-                {menu.map((item) => renderMenuItem(item, scrolled, darkMode))}
+                {menu.map((item) => renderMenuItem(item, scrolled))}
               </NavigationMenuList>
             </NavigationMenu>
           </div>
 
           <div className="flex gap-2 items-center shrink-0">
-            <ThemeToggle />
             <Button asChild size="sm" className="bg-[#0b5ea8] text-white hover:bg-[#0b5ea8]/90">
               <a href={auth.signup.url} target="_blank" rel="noopener noreferrer">{auth.signup.text}</a>
             </Button>
@@ -201,59 +195,56 @@ const Navbar1 = ({
               {logo.component ? logo.component : (logo.src && <img src={logo.src} className="w-8" alt={logo.alt} />)}
               <span className="text-lg font-semibold">{logo.title}</span>
             </a>
-            <div className="flex items-center gap-2">
-              <ThemeToggle />
-              <Sheet>
-                <SheetTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    className={`border-black/20 bg-transparent ${
-                      scrolled
-                        ? "text-[#0b5ea8] dark:text-white hover:bg-[#0b5ea8]/10 dark:hover:bg-white/10"
-                        : "text-white hover:bg-white/10 border-white/20"
-                    } hover:text-current`}
-                  >
-                    <Menu className="size-4" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent className="overflow-y-auto bg-white dark:bg-[#020b14] border-l border-[#e5eaf3] dark:border-white/10">
-                  <SheetHeader>
-                    <SheetTitle>
-                      <a href={logo.url} className="flex items-center gap-2">
-                        {logo.component ? logo.component : (logo.src && <img src={logo.src} className="w-8" alt={logo.alt} />)}
-                        <span className="text-lg font-semibold text-[#0b1f33] dark:text-white">
-                          {logo.title}
-                        </span>
-                      </a>
-                    </SheetTitle>
-                  </SheetHeader>
-                  <div className="my-6 flex flex-col gap-6">
-                    <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
-                      {menu.map((item) => renderMobileMenuItem(item))}
-                    </Accordion>
-                    <div className="border-t border-[#e5eaf3] dark:border-white/10 py-4">
-                      <div className="grid grid-cols-2 justify-start">
-                        {mobileExtraLinks.map((link, idx) => (
-                          <a
-                            key={idx}
-                            className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
-                            href={link.url}
-                          >
-                            {link.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="flex flex-col gap-3">
-                      <Button asChild>
-                        <a href={auth.signup.url} target="_blank" rel="noopener noreferrer">{auth.signup.text}</a>
-                      </Button>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className={`border-black/20 bg-transparent ${
+                    scrolled
+                      ? "text-[#0b5ea8] hover:bg-[#0b5ea8]/10"
+                      : "text-white hover:bg-white/10 border-white/20"
+                  } hover:text-current`}
+                >
+                  <Menu className="size-4" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent className="overflow-y-auto bg-white border-l border-[#e5eaf3]">
+                <SheetHeader>
+                  <SheetTitle>
+                    <a href={logo.url} className="flex items-center gap-2">
+                      {logo.component ? logo.component : (logo.src && <img src={logo.src} className="w-8" alt={logo.alt} />)}
+                      <span className="text-lg font-semibold text-[#0b1f33]">
+                        {logo.title}
+                      </span>
+                    </a>
+                  </SheetTitle>
+                </SheetHeader>
+                <div className="my-6 flex flex-col gap-6">
+                  <Accordion type="single" collapsible className="flex w-full flex-col gap-4">
+                    {menu.map((item) => renderMobileMenuItem(item))}
+                  </Accordion>
+                  <div className="border-t border-[#e5eaf3] py-4">
+                    <div className="grid grid-cols-2 justify-start">
+                      {mobileExtraLinks.map((link, idx) => (
+                        <a
+                          key={idx}
+                          className="inline-flex h-10 items-center gap-2 whitespace-nowrap rounded-md px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-accent-foreground"
+                          href={link.url}
+                        >
+                          {link.name}
+                        </a>
+                      ))}
                     </div>
                   </div>
-                </SheetContent>
-              </Sheet>
-            </div>
+                  <div className="flex flex-col gap-3">
+                    <Button asChild>
+                      <a href={auth.signup.url} target="_blank" rel="noopener noreferrer">{auth.signup.text}</a>
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
 
@@ -262,24 +253,16 @@ const Navbar1 = ({
   );
 };
 
-const renderMenuItem = (item: MenuItem, isScrolled: boolean, darkMode: boolean = false) => {
-  const triggerText = isScrolled && !darkMode ? "text-[#0b5ea8] dark:text-white" : "text-white";
-  const triggerHover = isScrolled && !darkMode
-    ? "hover:bg-[#0b5ea8]/10 hover:text-[#0b5ea8] focus:bg-[#0b5ea8]/10 focus:text-[#0b5ea8] data-[state=open]:bg-[#0b5ea8]/10 data-[state=open]:text-[#0b5ea8] dark:hover:bg-white/10 dark:hover:text-white dark:focus:bg-white/10 dark:focus:text-white dark:data-[state=open]:bg-white/10 dark:data-[state=open]:text-white"
+const renderMenuItem = (item: MenuItem, isScrolled: boolean) => {
+  const triggerText = isScrolled ? "text-[#0b5ea8]" : "text-white";
+  const triggerHover = isScrolled
+    ? "hover:bg-[#0b5ea8]/10 hover:text-[#0b5ea8] focus:bg-[#0b5ea8]/10 focus:text-[#0b5ea8] data-[state=open]:bg-[#0b5ea8]/10 data-[state=open]:text-[#0b5ea8]"
     : "hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white";
 
-  const dropdownBg = isScrolled && !darkMode
-    ? "bg-white/95 dark:bg-[#020b14]/95 border-gray-200 dark:border-white/10"
-    : "bg-[#020b14]/90 border-white/10";
-  const dropdownItemText = isScrolled && !darkMode
-    ? "text-[#0b1f33] dark:text-white"
-    : "text-white";
-  const dropdownItemHover = isScrolled && !darkMode
-    ? "hover:bg-gray-100/80 dark:hover:bg-white/10"
-    : "hover:bg-white/10";
-  const dropdownDescText = isScrolled && !darkMode
-    ? "text-gray-500 dark:text-gray-400"
-    : "text-gray-400";
+  const dropdownBg = isScrolled ? "bg-white/95 border-gray-200" : "bg-[#020b14]/90 border-white/10";
+  const dropdownItemText = isScrolled ? "text-[#0b1f33]" : "text-white";
+  const dropdownItemHover = isScrolled ? "hover:bg-gray-100/80" : "hover:bg-white/10";
+  const dropdownDescText = isScrolled ? "text-gray-500" : "text-gray-400";
 
   if (item.items) {
     return (
@@ -337,14 +320,14 @@ const renderMobileMenuItem = (item: MenuItem) => {
   if (item.items) {
     return (
       <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="py-0 font-semibold hover:no-underline text-[#0b1f33] dark:text-white">
+        <AccordionTrigger className="py-0 font-semibold hover:no-underline text-[#0b1f33]">
           {item.title}
         </AccordionTrigger>
         <AccordionContent className="mt-2">
           {item.items.map((subItem) => (
             <a
               key={subItem.title}
-              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground text-[#0b1f33] dark:text-white"
+              className="flex select-none gap-4 rounded-md p-3 leading-none outline-none transition-colors hover:bg-muted hover:text-accent-foreground text-[#0b1f33]"
               href={subItem.url}
             >
               {subItem.icon}
@@ -364,7 +347,7 @@ const renderMobileMenuItem = (item: MenuItem) => {
   }
 
   return (
-    <a key={item.title} href={item.url} className="font-semibold text-[#0b1f33] dark:text-white">
+    <a key={item.title} href={item.url} className="font-semibold text-[#0b1f33]">
       {item.title}
     </a>
   );
