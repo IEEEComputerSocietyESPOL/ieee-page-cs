@@ -1,4 +1,5 @@
 import { HeroSection } from "@/components/blocks/hero-section-5";
+import Link from 'next/link';
 
 
 import Header from "@/components/Header";
@@ -105,13 +106,13 @@ const tones: Record<string, { band: string; img: string }> = {
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-white text-[#0b1f33]">
+    <div className="relative min-h-screen bg-[#0b1f33] text-[#0b1f33]">
 
       <HeroSection />
 
       <main className="relative z-10">
         <div className="relative z-10">
-        <section id="stats" className="mx-auto w-full max-w-6xl px-6 pb-20 pt-16 lg:px-10">
+        <section id="stats" className="mx-auto w-full max-w-6xl px-6 pb-40 pt-16 lg:px-10">
           <div className="flex flex-col md:flex-row gap-8 items-center justify-between mb-12">
              <div className="flex-1">
                 <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] md:text-5xl">Nuestro Impacto</h2>
@@ -125,7 +126,11 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
              {chapterStats.map((stat) => (
-                <div key={stat.id} className="group relative overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white p-6 shadow-[0_4px_20px_rgba(9,20,40,0.04)] transition-all duration-300 hover:shadow-[0_12px_30px_rgba(9,20,40,0.1)] hover:-translate-y-1">
+                <Link 
+                  key={stat.id} 
+                  href={`/capitulos-tecnicos/${stat.id}`}
+                  className="group relative overflow-hidden rounded-2xl border border-[#e5eaf3] bg-white p-6 shadow-sm transition-all duration-300 ease-out hover:shadow-xl hover:shadow-slate-300/50 hover:-translate-y-1.5 cursor-pointer">
+                  
                   {/* Franja de color arriba */}
                   <div 
                     className="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl"
@@ -142,7 +147,7 @@ export default function Home() {
                       <span className="text-xs font-semibold uppercase tracking-wider text-[#6b7a90] mb-1.5">Miembros</span>
                     </div>
                   </div>
-                </div>
+                </Link>
              ))}
           </div>
         </section>
@@ -287,8 +292,19 @@ export default function Home() {
           </div>
         </section>
 */}
-
+        
         <section id="explore" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
+          <div className="mb-12 flex flex-col md:flex-row gap-8 items-center justify-between">
+            <div className="flex-1">
+              <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] md:text-5xl">
+                Membresía
+              </h2>
+              {/* Añadimos mt-4 para separarlo del H2, max-w-2xl para que no sea infinito, y el color gris oficial */}
+              <p className="mt-4 max-w-2xl text-[#3c4a5f] leading-relaxed">
+                Afiliación a la rama estudiantil y sus diferentes capítulos técnicos, en adición a sus múltiples ventajas tanto académicas como laborales.
+              </p>
+            </div>
+          </div>
           <div className="overflow-hidden rounded-3xl bg-[radial-gradient(circle_at_top,_#1f6db5,_#0b3e73_55%,_#082b4f_100%)] px-10 py-12 text-white">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <h3 className="font-[var(--font-heading)] text-3xl">Beneficios de la Membresía</h3>
@@ -332,13 +348,13 @@ export default function Home() {
 
 
         <footer className="border-t border-[#e6ecf5] bg-white">
-          <div className="mx-auto w-full max-w-6xl px-6 py-12 lg:px-10">
-            <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_1fr] text-sm text-[#3c4a5f]">
+          <div className="mx-auto w-full max-w-6xl px-16 py-12 lg:px-10">
+            <div className="grid gap-10 lg:grid-cols-[2fr_1fr_1fr] text-sm text-[#3c4a5f]">
               
               {/* Logo + descripción + redes */}
               <div className="flex flex-col gap-4">
                 <img src="/ieeeespol-logo.png" alt="IEEE ESPOL" className="h-24 w-auto object-contain self-start" />
-                <p className="text-sm text-[#3c4a5f] leading-relaxed">
+                <p className="text-sm text-[#3c4a5f] leading-relaxed max-w-xs">
                   IEEE ESPOL es la Rama Estudiantil del Instituto de Ingenieros Eléctricos y Electrónicos en la Escuela Superior Politécnica del Litoral, parte de la comunidad global IEEE.
                 </p>
                 <div className="flex items-center gap-3 mt-2">

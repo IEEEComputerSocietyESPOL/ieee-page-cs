@@ -25,7 +25,7 @@ export function HeroSection() {
                                     Advancing Technology for Humanity
                                 </h1>
                                 <p className="mt-8 max-w-2xl text-balance text-lg text-gray-300 pointer-events-auto">
-                                    Conéctate con más de 400.000 ingenieros, accede a millones de documentos de investigación y contribuye a dar forma al futuro de la tecnología a través de la comunidad global del IEEE.
+                                    Únete a una de las ramas estudiantiles más activas en el Ecuador. Potenciamos el talento de nuestros miembros combinando oportunidades académicas locales con el respaldo de la red de profesionales en tecnología más grande del mundo.
                                 </p>
 
                                 <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-start pointer-events-auto">
@@ -54,7 +54,7 @@ export function HeroSection() {
                             </div>
                             <div className="relative py-6 md:w-[calc(100%-11rem)]">
                                 <InfiniteSlider
-                                    speedOnHover={20}
+                                    speedOnHover={100000}
                                     speed={40}
                                     gap={60}>
                                     {chapterLogos.map((logo) => (
