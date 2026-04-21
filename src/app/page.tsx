@@ -45,7 +45,11 @@ const footerColumns = [
 
 export default function Home() {
   return (
+<<<<<<< Updated upstream
     <div className="relative min-h-screen bg-white">
+=======
+    <div className="relative min-h-screen bg-[#BCC4DB] text-[#0b1f33]">
+>>>>>>> Stashed changes
 
       <HeroSection />
 
