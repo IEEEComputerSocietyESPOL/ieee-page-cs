@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Fraunces, Space_Grotesk } from "next/font/google";
+import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
+
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-body",
@@ -29,6 +31,7 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${spaceGrotesk.variable} ${fraunces.variable} antialiased`}>
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
