@@ -45,7 +45,7 @@ const footerColumns = [
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#001C3D] text-[#a2a2a2]">
+    <div className="relative min-h-screen bg-white">
 
       <HeroSection />
 
@@ -56,7 +56,7 @@ export default function Home() {
           <section id="stats" className="mx-auto w-full max-w-6xl px-6 pb-40 pt-16 lg:px-10">
             <div className="flex flex-col md:flex-row gap-8 items-center justify-between mb-12">
               <div className="flex-1">
-                <h2 className="font-[var(--font-heading)] text-3xl text-[#b8b9b9] md:text-5xl">Nuestro Impacto</h2>
+                <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] md:text-5xl">Nuestro Impacto</h2>
                 <p className="mt-4 max-w-lg text-[#6b7a90]">Somos la rama estudiantil más activa, compuesta por múltiples capítulos técnicos dedicados a potenciar el talento de cada miembro.</p>
               </div>
               <div className="flex flex-col shrink-0 text-center md:text-right md:border-l-4 md:border-[#0b5ea8] md:pl-6 md:py-2">
@@ -80,7 +80,7 @@ export default function Home() {
                     style={{ backgroundColor: stat.color }}
                   />
                   <div className="relative z-10 flex flex-col justify-between h-full min-h-[140px]">
-                    <div className="h-12 flex items-center mb-3">
+                    <div className="flex items-center mb-3 min-h-[64px]">
                       <img
                         src={stat.logo}
                         alt={stat.name}
@@ -101,7 +101,7 @@ export default function Home() {
           <section id="explore" className="mx-auto w-full max-w-6xl px-6 pb-16 lg:px-10">
             <div className="mb-12 flex flex-col md:flex-row gap-8 items-center justify-between">
               <div className="flex-1">
-                <h2 className="font-[var(--font-heading)] text-3xl text-[#9c9fa1] md:text-5xl">
+                <h2 className="font-[var(--font-heading)] text-3xl text-[#0b1f33] md:text-5xl">
                   Membresía
                 </h2>
                 <p className="mt-4 max-w-2xl text-[#6b7a90] leading-relaxed">
