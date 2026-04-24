@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const PES_COLOR = "#006633";
 
 const directivaPES = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Miguel Alberto Torres Rodriguez", rol: "Consejero", imagen: "/directivas/PES/Miguel Alberto Torres Rodriguez - Consejero.png" },
+  { nombre: "Bryan Abel Arellano Súarez", rol: "Presidente", imagen: "/directivas/PES/Arellano Suárez Bryan Abel - Presidente.jpeg" },
+  { nombre: "Erick Roberto Oviedo Freire", rol: "Vicepresidente", imagen: "/directivas/PES/Erick Roberto Oviedo Freire - Vicepresidente.jpeg" },
+  { nombre: "Víctor Félix González Zambrano", rol: "Secretario", imagen: "/directivas/PES/González Zambrano Víctor Félix - Secretario.jpg" },
+  { nombre: "Cesar David Caivinagua Quezada", rol: "Tesorero", imagen: "/directivas/PES/Caivinagua Quezada Cesar David - Tesorero.jpg" },
 ];
 
 const areas = [

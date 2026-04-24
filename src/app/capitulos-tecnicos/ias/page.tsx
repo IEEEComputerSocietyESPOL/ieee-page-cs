@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const IAS_COLOR = "#00843D";
 
 const directivaIAS = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Carlos Alberto Salazar López", rol: "Consejero", imagen: "/directivas/IAS/Ph.D. Carlos Alberto Salazar Lopez - Consejero.png" },
+  { nombre: "Anibal Issac Pruna Santillán", rol: "Presidente", imagen: "/directivas/IAS/Anibal Isaac Pruna Santillán - Presidente.png" },
+  { nombre: "Jean Carlos Espinoza Vidal", rol: "Vicepresidente", imagen: "/directivas/IAS/Jean Carlos Espinoza Vidal - Vicepresidente.jpeg" },
+  { nombre: "Christian René Balcázar Romero", rol: "Secretario", imagen: "/directivas/IAS/Christian René Balcázar Romero - Secretario.png" },
+  { nombre: "Enna Marina Lozano Romero", rol: "Tesorero", imagen: "/directivas/IAS/Enna Marina Lozano Romero - Tesorera.png" },
 ];
 
 const areas = [

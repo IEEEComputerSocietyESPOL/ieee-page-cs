@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const WIE_COLOR = "#522367";
 
 const directivaWIE = [
-  { nombre: "Nombre Apellido", rol: "Consejera", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidenta", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidenta", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretaria", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorera", imagen: null },
+  { nombre: "Ph D. Ana Teresa Tapia Rosero", rol: "Consejera", imagen: null },
+  { nombre: "Raphaella Valentina Mendoza Sánchez", rol: "Coordinadora", imagen: "/afinidad/WIE/Raphaella Valentina Mendoza Sánchez - Coordinadora_.jpg" },
+  { nombre: "Valerin Valeska Franco Guamán", rol: "Subcoordinadora", imagen: "/afinidad/WIE/Valery Franco - Subcoordinadora.jpg" },
+  { nombre: "Ana Alejandra Quiroga Loor", rol: "Secretaria", imagen: null },
+  { nombre: "Daniela Paola Herrera Abad", rol: "Webmaster", imagen: null },
 ];
 
 const areas = [

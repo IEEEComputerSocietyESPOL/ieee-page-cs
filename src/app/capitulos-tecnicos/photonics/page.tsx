@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const PHS_COLOR = "#54c4ec";
 
 const directivaPHS = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Erick Abraham Lamilla Rubio", rol: "Consejero", imagen: "/directivas/PHOTONICS/Erick Abraham Lamilla Rubio- Mentor.png" },
+  { nombre: "Allan Axel Chagerben Londa", rol: "Presidente", imagen: "/directivas/PHOTONICS/Allan Axel Chagerben Londa- PRESIDENTE.jpg" },
+  { nombre: "Desirée Beatriz García Valencia", rol: "Vicepresidente", imagen: "/directivas/PHOTONICS/García Valencia Desirée Beatriz- VICEPRESIDENTA.jpg" },
+  { nombre: "María Gabriela Parrales Jiménez", rol: "Secretario", imagen: "/directivas/PHOTONICS/María Gabriela Parrales Jiménez- Secretaria.jpeg" },
+  { nombre: "Sergio Dennis Tumbaco Hualpa", rol: "Tesorero", imagen: "/directivas/PHOTONICS/Sergio Dennis Tumbaco Hualpa-Tesorero.jpg" },
 ];
 
 const areas = [

@@ -3,7 +3,7 @@ import { ieeeNavData } from "@/data/nav-data";
 
 const directiva = [
   { nombre: "Ph D. Carlos Teodoro Monsalve Arteaga", rol: "Consejero", imagen: null },
-  { nombre: "Ph D. Edwin Giannine Valarezo Añazco", rol: "Mentor", imagen: null },
+  { nombre: "Ph D. Edwin Giannine Valarezo Añazco", rol: "Mentor", imagen: "/directivas/EMBS/Edwin Valarezo - Mentor.jpeg" },
   { nombre: "Marlon Estuardo Guadalupe Intriago", rol: "Presidente", imagen: "/directivas/directiva-general/Marlon Estuardo Guadalupe Intriago - Presidente.png" },
   { nombre: "Ana Alejandra Quiroga Loor", rol: "Vicepresidenta", imagen: null },
   { nombre: "Ariel Eloy Rodriguez Zambrano", rol: "Secretario", imagen: "/directivas/directiva-general/Ariel Eloy Rodriguez Zambrano - Secretario.png"},

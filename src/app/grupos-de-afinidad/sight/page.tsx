@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const SIGHT_COLOR = "#ef4c00";
 
 const directivaSIGHT = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Ángel Andrés Recalde Lino", rol: "Consejero", imagen: "" },
+  { nombre: "Marlen Jesús Valero Bazurto", rol: "Coordinadora", imagen: "/afinidad/SIGHT/Marlen Valero - Coordinadora.jpg" },
+  { nombre: "Bolivar Humberto Velasco Bernal", rol: "Subcoordinador", imagen: "" },
+  { nombre: "Domenica Michelle Castro Pozo", rol: "Secretaria", imagen: "/afinidad/SIGHT/Domenica Castro - Subcoordinadora.jpeg" },
+  { nombre: "Milene Domenica Mantilla Solano", rol: "Webmaster", imagen: "" },
 ];
 
 const areas = [

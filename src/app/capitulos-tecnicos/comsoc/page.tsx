@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const COMSOC_COLOR = "#00AEEF";
 
 const directivaComSoc = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Boris Gabriel Ramos Sánchez", rol: "Consejero", imagen: "/directivas/COMSOC/PhD. Boris Ramos- MENTOR.jpg" },
+  { nombre: "José Manuel Guale Vasquez", rol: "Presidente", imagen: "/directivas/COMSOC/JOSE MANUEL GUALE VASQUEZ - PRESIDENTE.jpg" },
+  { nombre: "Juan Pablo Ayala Chan", rol: "Vicepresidente", imagen: "/directivas/COMSOC/JUAN PABLO AYALA CHAN - VICEPRESIDENTE_.jpg" },
+  { nombre: "Kelvin Roger Magallanes Dominguez", rol: "Secretario", imagen: "/directivas/COMSOC/KELVIN ROGER MAGALLANES DOMINGUEZ - SECRETARIO.jpeg" },
+  { nombre: "Santiago Ezequiel Reyes Garcia", rol: "Tesorero", imagen: "/directivas/COMSOC/SANTIAGO EZEQUIEL REYES GARCIA - TESORERO.jpg" },
 ];
 
 const areas = [

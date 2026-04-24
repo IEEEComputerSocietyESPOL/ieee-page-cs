@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const EMBS_COLOR = "#772583";
 
 const directivaEMBS = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Edwin Valarezo Añazco", rol: "Consejero", imagen: "/directivas/EMBS/Edwin Valarezo - Mentor.jpeg" },
+  { nombre: "Freddy Jhosue Torres Morales", rol: "Presidente", imagen: "/directivas/EMBS/Freddy Jhosue Torres Morales - Presidente.jpg" },
+  { nombre: "Tamara Dayanna Villon Rivera", rol: "Vicepresidente", imagen: "/directivas/EMBS/Tamara Dayana Villon Rivera - Vicepresidenta.png" },
+  { nombre: "Ana Belén Durango Buenaño", rol: "Secretario", imagen: "/directivas/EMBS/Ana Belén Durango Buenaño - Secretaria EMBS.jpg" },
+  { nombre: "Guillermo Andrés Mendoza Cornejo", rol: "Tesorero", imagen: "/directivas/EMBS/Guillermo Andrés Mendoza Cornejo-Tesorero.jpg" },
 ];
 
 const areas = [

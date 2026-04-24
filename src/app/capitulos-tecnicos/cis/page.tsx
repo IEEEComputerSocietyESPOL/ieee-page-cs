@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const CIS_COLOR = "#0099cc";
 
 const directivaCIS = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Miguel Andres Realpe Robalino", rol: "Consejero", imagen: "/directivas/CIS/Miguel Realpe Mentor.jpg" },
+  { nombre: "Kevin David Fernández Sánchez", rol: "Presidente", imagen: "/directivas/CIS/Kevin David Fernández Sanchez - Presidente.jpg" },
+  { nombre: "Jose Luis Chong Acuña", rol: "Vicepresidente", imagen: "/directivas/CIS/José Luis Chong Acuña - Vicepresidente_.jpg" },
+  { nombre: "Issac Valentino Criollo Córdova", rol: "Secretario", imagen: "/directivas/CIS/Isaac Valentino Criollo Córdova - Secretario_.jpg" },
+  { nombre: "Jonathan Paúl Zambrano Arriaga", rol: "Tesorero", imagen: "/directivas/CIS/Jonathan Paúl Zambrano Arriaga - Tesorero.jpg" },
 ];
 
 const areas = [

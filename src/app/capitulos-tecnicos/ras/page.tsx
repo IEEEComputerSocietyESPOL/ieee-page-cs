@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const RAS_COLOR = "#862633";
 
 const directivaRAS = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ph D. Francisco Xavier Yumbla Arebalo", rol: "Consejero", imagen: "/directivas/RAS/Francisco-Yumbla.webp" },
+  { nombre: "Yolanda Raquel Salazar Medranda", rol: "Presidente", imagen: "/directivas/RAS/Yolanda Raquel Salazar Medranda- Presidenta.png" },
+  { nombre: "Abel Issac López Macías", rol: "Vicepresidente", imagen: "/directivas/RAS/Abel Isaac López Macías - Vicepresidente.png" },
+  { nombre: "José David Aguirre Vacas", rol: "Secretario", imagen: "/directivas/RAS/José David Aguirre Vacas- Secretario.png" },
+  { nombre: "Mauricio Alejandro Torres Benites", rol: "Tesorero", imagen: "/directivas/RAS/Mauricio Alejandro Torres Benites - Tesorero.png" },
 ];
 
 const areas = [

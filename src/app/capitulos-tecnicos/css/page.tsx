@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const CSS_COLOR = "#012431";
 
 const directivaCSS = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Msc. Sara Judith Rios Orellana", rol: "Consejero", imagen: "/directivas/CSS/Sara Judith Rios Orellana - Consejera CSS.jpg" },
+  { nombre: "Roberto Stali Rodriguez Rojas", rol: "Presidente", imagen: "/directivas/CSS/Roberto Stali Rodriguez Rojas - Presidente CSS.jpg" },
+  { nombre: "Felix Javier Garate Rivera", rol: "Vicepresidente", imagen: "/directivas/CSS/Felix Javier Gárate Rivera - Vice presidente CSS.jpeg" },
+  { nombre: "Tiziana Niobe Montoya Herrera", rol: "Secretario", imagen: "/directivas/CSS/Tiziana Niobe Montoya Herrera - Secretaria CSS.jpg" },
+  { nombre: "Emmanuel Gerardo Rivas Pincay", rol: "Tesorero", imagen: "/directivas/CSS/Emmanuel Gerardo Rivas Pincay - Tesorero CSS.jpeg" },
 ];
 
 const areas = [

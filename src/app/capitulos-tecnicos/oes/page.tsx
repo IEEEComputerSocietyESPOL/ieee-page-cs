@@ -5,11 +5,11 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 const OES_COLOR = "#0213a8";
 
 const directivaOES = [
-  { nombre: "Nombre Apellido", rol: "Consejero", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Presidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Vicepresidente", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Secretario", imagen: null },
-  { nombre: "Nombre Apellido", rol: "Tesorero", imagen: null },
+  { nombre: "Ing. Rafael Dario González Muñoz", rol: "Consejero", imagen: "/directivas/OES/Rafael Dario González Muñoz - Consejero.jpg" },
+  { nombre: "Ginger Yuleixy Rivera Ayón", rol: "Presidente", imagen: "/directivas/OES/Ginger Yuleixy Rivera Ayón - Presidenta.png" },
+  { nombre: "Dayanna Elizabeth Mora Romero", rol: "Vicepresidente", imagen: "/directivas/OES/Dayanna Elizabeth Mora Romero - Vicepresidenta.png" },
+  { nombre: "Leonardo Andrés Chóez Ramón", rol: "Secretario", imagen: "/directivas/OES/Leonardo Andrés Chóez Ramón - Secretario.jpeg" },
+  { nombre: "Miguel Armando Guevara Barreno", rol: "Tesorero", imagen: "/directivas/OES/Miguel Armando Guevara Barreno - Tesorero.jpg" },
 ];
 
 const areas = [
