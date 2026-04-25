@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/blocks/hero-section-5";
 import Link from 'next/link';
 import CarruselEventos from "@/components/CarruselEventos";
+import SeccionNoticias from "@/components/SeccionNoticias";
 
 const chapterStats = [
   { id: "cs", name: "Computer Society", count: 18, color: "#FFA300", logo: "/logo_character/cs.png" },
@@ -55,7 +56,27 @@ export default function Home() {
         <div className="relative z-10">
 
           <CarruselEventos />
+          <div className="flex justify-center mt-4">
+            <a
+              href="/eventos"
+              className="inline-flex items-center gap-2 border border-[#0b5ea8] text-[#0b5ea8] hover:bg-[#0b5ea8] hover:text-white font-semibold px-6 py-2.5 rounded-full transition-colors text-sm"
+            >
+              Ver todos los eventos
+              <span className="text-base">→</span>
+            </a>
+          </div>
           
+          <SeccionNoticias />
+          <div className="flex justify-center mt-8">
+          <a
+            href="/noticias"
+            className="inline-flex items-center gap-2 border border-[#0b5ea8] text-[#0b5ea8] hover:bg-[#0b5ea8] hover:text-white font-semibold px-6 py-2.5 rounded-full transition-colors text-sm"
+          >
+            Ver todas las noticias
+            <span className="text-base">→</span>
+          </a>
+        </div>
+
           {/* Sección: Nuestro Impacto */}
           <section id="stats" className="mx-auto w-full max-w-6xl px-6 pb-40 pt-16 lg:px-10">
             <div className="flex flex-col md:flex-row gap-8 items-center justify-between mb-12">

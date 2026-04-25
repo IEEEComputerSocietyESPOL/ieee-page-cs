@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, where, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 export type Evento = {
@@ -11,19 +11,30 @@ export type Evento = {
   imagen: string;
   link: string;
   activo: boolean;
+  capitulos: string[];
 };
 
-export function useEventos() {
+export function useEventos(capitulo?: string, soloActivos?: boolean) {
   const [eventos, setEventos] = useState<Evento[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchEventos = async () => {
       try {
-        const q = query(
-          collection(db, "eventos"),
-          where("activo", "==", true)
-        );
+        let q;
+        if (capitulo) {
+          q = query(
+            collection(db, "eventos"),
+            where("capitulos", "array-contains", capitulo)
+          );
+        } else if (soloActivos) {
+          q = query(
+            collection(db, "eventos"),
+            where("activo", "==", true)
+          );
+        } else {
+          q = query(collection(db, "eventos"));
+        }
         const snapshot = await getDocs(q);
         const data = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -38,7 +49,7 @@ export function useEventos() {
     };
 
     fetchEventos();
-  }, []);
+  }, [capitulo, soloActivos]);
 
   return { eventos, loading };
 }

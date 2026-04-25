@@ -40,7 +40,7 @@ export const ieeeNavData = {
       items: [
         { title: "Inteligencia Computacional", url: "/capitulos-tecnicos/cis" },
         { title: "Computación", url: "/capitulos-tecnicos/cs" },
-        { title: "Sistemas de control", url: "/capitulos-tecnicos/css" },
+        { title: "Sistemas de Control", url: "/capitulos-tecnicos/css" },
         { title: "Comunicaciones", url: "/capitulos-tecnicos/comsoc" },
         { title: "Ingeniería en Medicina y Biología", url: "/capitulos-tecnicos/embs" },
         { title: "Geociencias y Teledetección", url: "/capitulos-tecnicos/grss" },
@@ -61,16 +61,16 @@ export const ieeeNavData = {
       ],
     },
     {
+      title: "EVENTOS & NOTICIAS",
+      url: "#",
+      items: [
+        { title: "Eventos", url: "/eventos" },
+        { title: "Noticias", url: "/noticias" },
+      ],
+    },
+    {
       title: "CONTACTO",
       url: "/contact",
     },
   ],
-  mobileExtraLinks: [
-    { name: "Press", url: "/press" },
-    { name: "Contact", url: "/contact" },
-  ],
-  auth: {
-    login: { text: "Log in", url: "/login" },
-    signup: { text: "Join IEEE", url: "https://www.ieee.org/membership/join/index.html" },
-  },
 };

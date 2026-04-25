@@ -1,20 +1,12 @@
+"use client";
 import { Navbar1 } from "@/components/blocks/shadcnblocks-com-navbar1";
 import { ieeeNavData } from "@/data/nav-data";
+import { useDirectiva } from "@/hooks/useDirectiva";
 
-const directiva = [
-  { nombre: "Ph D. Carlos Teodoro Monsalve Arteaga", rol: "Consejero", imagen: null },
-  { nombre: "Ph D. Edwin Giannine Valarezo Añazco", rol: "Mentor", imagen: "/directivas/EMBS/Edwin Valarezo - Mentor.jpeg" },
-  { nombre: "Marlon Estuardo Guadalupe Intriago", rol: "Presidente", imagen: "/directivas/directiva-general/Marlon Estuardo Guadalupe Intriago - Presidente.png" },
-  { nombre: "Ana Alejandra Quiroga Loor", rol: "Vicepresidenta", imagen: null },
-  { nombre: "Ariel Eloy Rodriguez Zambrano", rol: "Secretario", imagen: "/directivas/directiva-general/Ariel Eloy Rodriguez Zambrano - Secretario.png"},
-  { nombre: "Jose Mario Mora Estrella", rol: "Tesorero", imagen: "/directivas/directiva-general/Jose Mario Mora Estrella - Tesorero.jpeg" },
-  { nombre: "Elianna Esther Lucio Cedeño", rol: "Webmaster", imagen: null },
-  { nombre: "Geanella Jeannina Santana Barzallo", rol: "Coordinadora de Membresías", imagen: "/directivas/directiva-general/Geanella Jeannina Santana Barzallo - Coordinadora de Membresias.png" },
-];
-
-const CardPersona = ({ persona }: { persona: typeof directiva[0] }) => (
+const CardPersona = ({ persona }: { persona: { nombre: string; rol: string; imagen: string; correo: string } }) => (
   <div className="group relative overflow-hidden rounded-2xl bg-white border border-[#e5eaf3] shadow-[0_4px_20px_rgba(0,0,0,0.08)] transition-all duration-300 hover:shadow-[0_12px_30px_rgba(11,94,168,0.15)] hover:-translate-y-1">
-    <div className="aspect-[3/4] w-full overflow-hidden bg-[linear-gradient(135deg,_#0b3e73,_#0b5ea8)]">
+    <div className="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl bg-[#0b5ea8]" />
+    <div className="aspect-[3/4] w-full overflow-hidden mt-1.5 bg-[linear-gradient(135deg,_#0b3e73,_#0b5ea8)]">
       {persona.imagen ? (
         <img src={persona.imagen} alt={persona.nombre} className="w-full h-full object-cover object-top" />
       ) : (
@@ -27,13 +19,27 @@ const CardPersona = ({ persona }: { persona: typeof directiva[0] }) => (
     </div>
     <div className="p-5">
       <p className="text-xs uppercase tracking-[0.2em] text-[#0b5ea8] font-semibold mb-1">{persona.rol}</p>
-      <h3 className="text-[#0b1f33] font-bold text-base leading-snug">{persona.nombre}</h3>
+      <h3 className="text-[#0b1f33] font-bold text-base leading-snug mb-2">{persona.nombre}</h3>
+      {persona.correo && (
+        <a
+          href={`mailto:${persona.correo}`}
+          className="inline-flex items-center gap-1.5 text-xs text-[#6b7a90] hover:text-[#0b5ea8] transition-colors truncate"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,12 2,6"/>
+          </svg>
+          {persona.correo}
+        </a>
+      )}
     </div>
     <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0b5ea8] scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
   </div>
 );
 
 export default function DirectivaPage() {
+  const { directiva, loading } = useDirectiva("general");
+
   const consejeros = directiva.slice(0, 2);
   const directivos = directiva.slice(2);
 
@@ -57,25 +63,39 @@ export default function DirectivaPage() {
           </p>
         </div>
 
-        {/* Consejeros y Mentor */}
-        <div className="mb-10">
-          <div className="flex justify-center gap-4 max-w-[700px] mx-auto">
-            {consejeros.map((persona, idx) => (
-              <div key={idx} className="w-full max-w-[calc(33%-8px)]">
-                <CardPersona persona={persona} />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Directiva */}
-        <div>
+        {loading ? (
           <div className="grid grid-cols-3 gap-4 max-w-[700px] mx-auto">
-            {directivos.map((persona, idx) => (
-              <CardPersona key={idx} persona={persona} />
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="aspect-[3/4] rounded-2xl bg-[#f7f8fb] border border-[#e5eaf3] animate-pulse" />
             ))}
           </div>
-        </div>
+        ) : directiva.length === 0 ? (
+          <div className="bg-[#f7f8fb] border border-[#e5eaf3] rounded-2xl p-8 text-center">
+            <p className="text-[#6b7a90]">Próximamente se publicará la directiva general.</p>
+          </div>
+        ) : (
+          <>
+            {/* Consejeros y Mentor */}
+            <div className="mb-10">
+              <div className="flex justify-center gap-4 max-w-[700px] mx-auto">
+                {consejeros.map((persona) => (
+                  <div key={persona.id} className="w-full max-w-[calc(33%-8px)]">
+                    <CardPersona persona={persona} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Directiva */}
+            <div>
+              <div className="grid grid-cols-3 gap-4 max-w-[700px] mx-auto">
+                {directivos.map((persona) => (
+                  <CardPersona key={persona.id} persona={persona} />
+                ))}
+              </div>
+            </div>
+          </>
+        )}
 
       </main>
     </div>

@@ -14,15 +14,25 @@ type Evento = {
   imagen: string;
   link: string;
   activo: boolean;
+  capitulos: string[];
 };
 
-const eventoVacio = {
+const eventoVacio: {
+  titulo: string;
+  descripcion: string;
+  fecha: string;
+  imagen: string;
+  link: string;
+  activo: boolean;
+  capitulos: string[];
+} = {
   titulo: "",
   descripcion: "",
   fecha: "",
   imagen: "",
   link: "",
   activo: true,
+  capitulos: [],
 };
 
 export default function AdminEventos() {
@@ -80,6 +90,7 @@ export default function AdminEventos() {
       imagen: evento.imagen,
       link: evento.link,
       activo: evento.activo,
+      capitulos: evento.capitulos ?? [],
     });
     setShowForm(true);
   };
@@ -133,13 +144,19 @@ export default function AdminEventos() {
             <p className="text-xs text-[#6b7a90]">Gestión de Eventos Destacados</p>
           </div>
         </div>
-        <button
-          onClick={handleLogout}
-          className="inline-flex items-center gap-2 text-[#6b7a90] hover:text-red-500 transition-colors text-sm font-medium"
-        >
-          <LogOut className="size-4" />
-          Cerrar sesión
-        </button>
+        <div className="flex items-center gap-4">
+          <a href="/admin/noticias" className="text-sm font-medium text-[#0b5ea8] hover:underline">
+            Ver Noticias
+          </a>
+          <a href="/admin/directivas" className="text-sm font-medium text-[#0b5ea8] hover:underline">Directivas</a>
+          <button
+            onClick={handleLogout}
+            className="inline-flex items-center gap-2 text-[#6b7a90] hover:text-red-500 transition-colors text-sm font-medium"
+          >
+            <LogOut className="size-4" />
+            Cerrar sesión
+          </button>
+        </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 py-10">
@@ -190,6 +207,43 @@ export default function AdminEventos() {
                 />
               </div>
               <div className="flex flex-col gap-2 md:col-span-2">
+                <label className="text-sm font-semibold text-[#0b1f33]">Capítulos</label>
+                <p className="text-xs text-[#6b7a90]">Selecciona uno o más capítulos. Si no seleccionas ninguno el evento será general.</p>
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                  {[
+                    { value: "cs", label: "Computer Society" },
+                    { value: "ras", label: "Robotics & Automation" },
+                    { value: "wie", label: "Women in Engineering" },
+                    { value: "pes", label: "Power & Energy" },
+                    { value: "cis", label: "Computational Intelligence" },
+                    { value: "ias", label: "Industry Applications" },
+                    { value: "embs", label: "Medicine & Biology" },
+                    { value: "comsoc", label: "Communications" },
+                    { value: "css", label: "Control Systems" },
+                    { value: "phs", label: "Photonics" },
+                    { value: "oes", label: "Oceanic Engineering" },
+                    { value: "sight", label: "SIGHT" },
+                    { value: "grss", label: "Geoscience & Remote Sensing" },
+                  ].map((c) => (
+                    <label key={c.value} className="flex items-center gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={form.capitulos.includes(c.value)}
+                        onChange={(e) => {
+                          if (e.target.checked) {
+                            setForm({ ...form, capitulos: [...form.capitulos, c.value] });
+                          } else {
+                            setForm({ ...form, capitulos: form.capitulos.filter((cap) => cap !== c.value) });
+                          }
+                        }}
+                        className="w-4 h-4 accent-[#0b5ea8]"
+                      />
+                      <span className="text-sm text-[#0b1f33]">{c.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col gap-2 md:col-span-2">
                 <label className="text-sm font-semibold text-[#0b1f33]">Descripción *</label>
                 <textarea
                   value={form.descripcion}
@@ -238,16 +292,16 @@ export default function AdminEventos() {
                   className="rounded-xl border border-[#e5eaf3] px-4 py-3 text-[#0b1f33] placeholder:text-[#6b7a90] focus:outline-none focus:border-[#0b5ea8] transition-colors"
                 />
               </div>
-              <div className="flex items-center gap-3 md:col-span-2">
+              <div className="flex items-center gap-3">
                 <input
                   type="checkbox"
-                  id="activo"
+                  id="destacado"
                   checked={form.activo}
                   onChange={(e) => setForm({ ...form, activo: e.target.checked })}
                   className="w-4 h-4 accent-[#0b5ea8]"
                 />
-                <label htmlFor="activo" className="text-sm font-semibold text-[#0b1f33]">
-                  Mostrar en la página principal
+                <label htmlFor="destacado" className="text-sm font-semibold text-[#0b1f33]">
+                  Marcar como evento destacado en la página principal
                 </label>
               </div>
               <div className="md:col-span-2 flex gap-3">
@@ -298,10 +352,18 @@ export default function AdminEventos() {
                   <div className="flex items-center gap-3 mb-1">
                     <h3 className="font-bold text-[#0b1f33] truncate">{evento.titulo}</h3>
                     <span className={`text-xs font-semibold px-2 py-0.5 rounded-full shrink-0 ${evento.activo ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500"}`}>
-                      {evento.activo ? "Activo" : "Inactivo"}
+                      {evento.activo ? "Destacado" : "Normal"}
                     </span>
                   </div>
-                  <p className="text-xs text-[#0b5ea8] font-semibold mb-1">{evento.fecha}</p>
+                  <div className="flex items-center gap-2 mb-1">
+                    <p className="text-xs text-[#0b5ea8] font-semibold">{evento.fecha}</p>
+                    <span className="text-xs text-[#6b7a90]">•</span>
+                    <span className="text-xs text-[#6b7a90]">
+                      {evento.capitulos && evento.capitulos.length > 0
+                        ? evento.capitulos.join(", ").toUpperCase()
+                        : "General"}
+                    </span>
+                  </div>
                   <p className="text-sm text-[#6b7a90] line-clamp-1">{evento.descripcion}</p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
@@ -309,7 +371,7 @@ export default function AdminEventos() {
                     onClick={() => handleToggleActivo(evento)}
                     className={`text-xs font-semibold px-3 py-1.5 rounded-full border transition-colors ${evento.activo ? "border-gray-200 text-gray-500 hover:border-red-300 hover:text-red-500" : "border-green-200 text-green-600 hover:bg-green-50"}`}
                   >
-                    {evento.activo ? "Desactivar" : "Activar"}
+                    {evento.activo ? "Quitar Destacado" : "Destacar"}
                   </button>
                   <button
                     onClick={() => handleEditar(evento)}
